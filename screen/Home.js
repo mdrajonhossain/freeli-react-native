@@ -3,8 +3,9 @@ import { StyleSheet, Image, View, Text, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
+  
 
   return (
     <View style={styles.container}>
@@ -30,9 +31,8 @@ const Home = () => {
         </Swiper>
       </View>
 
-
       <TouchableOpacity style={styles.signup_btn}>
-        <Text style={styles.signup_txt}>Sign up</Text>
+        <Text style={styles.signup_txt} onPress={() => navigation.navigate("signup")}>Sign up</Text>
       </TouchableOpacity>
 
       <View style={styles.main_have_account}>
