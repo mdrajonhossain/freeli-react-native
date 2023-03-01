@@ -32,12 +32,12 @@ const Home = ({ navigation }) => {
       </View>
 
       <TouchableOpacity style={styles.signup_btn}>
-        <Text style={styles.signup_txt} onPress={() => navigation.navigate("signup")}>Sign up</Text>
+        <Text style={styles.signup_txt} onPress={() => navigation.navigate("login")}>Sign in</Text>
       </TouchableOpacity>
 
       <View style={styles.main_have_account}>
         <Text style={styles.have_account}>Don't thave an account ?
-          <Text style={styles.signup_signin}> Sign in</Text>
+          <Text style={styles.signup_signin} onPress = {() => navigation.navigate("signup")}> Sign up</Text>
         </Text>
       </View>
 

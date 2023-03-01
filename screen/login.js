@@ -9,7 +9,10 @@ import {
   StatusBar,
 } from 'react-native';
 import {useState} from 'react';
-export default function Login() {
+
+
+
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   var Email = email;
@@ -27,7 +30,7 @@ export default function Login() {
         <View style={{justifyContent: 'center', width: '100%'}}>
           <Image
             style={{width: '100%', height: 80}}
-            source={require('../Assert/logo/workfreeli_final_logo.png')}
+            source={require('../assert/logo/workfreeli_final_logo.png')}
           />
         </View>
 
@@ -126,3 +129,5 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
 });
+
+export default Login;
