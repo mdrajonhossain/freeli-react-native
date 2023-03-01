@@ -10,7 +10,7 @@ const Home = () => {
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
-          source={require('./images.png')}
+          source={require('../assert/images/images.png')}
           style={styles.logo}
           resizeMode="stretch"
         />
@@ -19,13 +19,13 @@ const Home = () => {
       <View style={styles.main_slider}>
         <Swiper style={styles.wrapper} autoplay={true}>
           <View style={styles.slide}>
-            <Image source={require('./slider01.jpg')} style={styles.image} />
+            <Image source={require('../assert/images/slider01.jpg')} style={styles.image} />
           </View>
           <View style={styles.slide}>
-            <Image source={require('./slider01.jpg')} style={styles.image} />
+            <Image source={require('../assert/images/images.png')} style={styles.image} />
           </View>
           <View style={styles.slide}>
-            <Image source={require('./slider01.jpg')} style={styles.image} />
+            <Image source={require('../assert/images/slider01.jpg')} style={styles.image} />
           </View>
         </Swiper>
       </View>
