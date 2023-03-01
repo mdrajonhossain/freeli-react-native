@@ -12,14 +12,14 @@ import Signup from './screen/Signup';
 const Stack = createNativeStackNavigator();
 
 function App() {
-  
+
 
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
-        <Stack.Screen name="signup" component={Signup} options={{ headerShown: false }}/>
+        <Stack.Screen name="signup" component={Signup} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
