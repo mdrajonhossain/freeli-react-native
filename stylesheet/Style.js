@@ -15,4 +15,4 @@ box: {
    
 });
 
-export styles
+export default styles;

@@ -9,6 +9,9 @@ import {
   StatusBar,
 } from 'react-native';
 import {useState} from 'react';
+import styles from '../stylesheet/LoginStyleSheet';
+import appStr from '../AppDefaultStr';
+import appColor from '../AppColor';
 
 
 
@@ -27,10 +30,10 @@ const Login = ({ navigation }) => {
       <StatusBar style="auto" />
       <View style={styles.container}>
         {/* logo image */}
-        <View style={{justifyContent: 'center', width: '100%'}}>
+        <View style={{justifyContent: 'center', width: '100%', height: 100, padding: 20}}>
           <Image
-            style={{width: '100%', height: 80}}
-            source={require('../assert/logo/workfreeli_final_logo.png')}
+            style={{width: '100%', height: '100%'}}
+            source={require('../assert/logo/workfreeli_final_logo_transparent.png')}
           />
         </View>
 
@@ -39,10 +42,10 @@ const Login = ({ navigation }) => {
           <View
             style={{justifyContent: 'center', width: '100%'}}>
             <Text adjustsFontSizeToFit style={styles.textColor1}>
-              Hello! Welcome back
+              {appStr.login_welcom_title_str}
             </Text>
             <Text adjustsFontSizeToFit style={styles.textColor2}>
-              Sign into your account here
+            {appStr.login_welcom_msg_str}
             </Text>
           </View> 
         </View>
@@ -50,19 +53,21 @@ const Login = ({ navigation }) => {
         {/* login screen body view */}
         <View>
           <View style={{justifyContent: 'center', width: '100%', marginTop:30}}>
-            <Text>Email Address</Text>
+            <Text style={{color:'#fff'}} >Email Address</Text>
             <TextInput
               style={styles.inputbox}
               placeholder="example@hayven.com"
+              placeholderTextColor={appColor.text_color_gray}
               onChangeText={Email => setEmail(Email)}
             />
 
-            <Text>Password</Text>
+            <Text style={{color:'#fff'}}>Password</Text>
             <TextInput
               style={styles.inputbox}
               secureTextEntry={true}
               autoCorrect={false}
               placeholder="Enter Password"
+              placeholderTextColor={appColor.text_color_gray}
               onChangeText={Pass => setPass(Pass)}
             />
 
@@ -78,56 +83,4 @@ const Login = ({ navigation }) => {
     </>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#ffffff',
-    flex: 1,
-    width:'100%',
-    height:'100%',
-    paddingLeft: 20,
-    paddingRight: 20,
-    flexDirection: 'column',
-  },
-  errorMessage: {
-    fontSize: 20,
-    color: 'red',
-    marginLeft: -80,
-  },
-  inputbox: {
-    width: '100%',
-    height: 50,
-    borderRadius: 5,
-    borderColor: '#023d67',
-    backgroundColor: '#c6cbca',
-    marginVertical: 10,
-    paddingHorizontal: 10,
-  },
-  button: {
-    width: '100%',
-    height: 50,
-    borderRadius: 5,
-    marginTop: 50,
-    justifyContent: 'center',
-    backgroundColor: '#023d67',
-  },
-  buttonText: {
-    color: '#ffffff',
-    fontSize: 20,
-    textAlign: 'center',
-  },
-  textColor1: {
-    color: '#000000',
-    fontSize: 22,
-    width: '100%',
-    textAlign: 'center',
-    fontStyle: 'normal',
-  },
-  textColor2: {
-    width: '100%',
-    textAlign: 'center',
-    color: '#000000',
-    fontSize: 12,
-  },
-});
-
 export default Login;
