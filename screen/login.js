@@ -52,28 +52,35 @@ const Login = ({ navigation }) => {
         {/* login screen body view */}
         <View>
           <View style={{justifyContent: 'center', width: '100%', marginTop:30, flexDirection:'column'}}>
-            <Text style={{color:'#fff'}} >Email Address</Text>
-            <TextInput
-              style={styles.inputbox}
-              placeholder="example@hayven.com"
-              placeholderTextColor={appColor.text_color_gray}
-              onChangeText={Email => setEmail(Email)}
-            />
 
-            <Text style={{color:'#fff'}}>Password</Text>
-            <TextInput
+            <View style={{flexDirection:'column'}}>
+
+            <Text style={{color:'#fff'}}>Email</Text>
+              <TextInput
+                style={styles.inputbox}
+                placeholder="example@hayven.com"
+                placeholderTextColor={appColor.text_color_gray}
+                onChangeText={Email => setEmail(Email)}
+              />
+            </View>
+          
+          
+
+            <View style={{flexDirection:'column'}}>
+              <Text style={{color:'#fff'}}>Password</Text>
+              <TextInput
               style={styles.inputbox}
-              secureTextEntry={true}
-              autoCorrect={false}
-              placeholder="Enter Password"
-              placeholderTextColor={appColor.text_color_gray}
-              onChangeText={Pass => setPass(Pass)}
-            />
+                secureTextEntry={true}
+                autoCorrect={false}
+                placeholder="Enter Password"
+                placeholderTextColor={appColor.text_color_gray}
+                onChangeText={Pass => setPass(Pass)}
+              />
+            </View>
+          
 
             <TouchableOpacity style={styles.button}
-                onPress={() => {
-                   console.log("Log in button click");
-                }}>
+                onPress = {() => navigation.navigate("connect")}>
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
           </View>
