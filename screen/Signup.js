@@ -32,7 +32,7 @@ const Signup = ({navigation}) => {
         <Text style={styles.buttonText}>Continue</Text>
       </TouchableOpacity>
 
-      <Text style={styles.already_member}>Already a member ?  <Text style={styles.signin_text} onPress={() => navigation.navigate('home')}> Sign in</Text></Text>
+      <Text style={styles.already_member}>Already a member ?  <Text style={styles.signin_text} onPress={() => navigation.navigate('login')}> Sign in</Text></Text>
     </View>
   );
 };
