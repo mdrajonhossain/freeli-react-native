@@ -78,9 +78,10 @@ const Connect_screen = ({ navigation }) => {
       <View style={styles.topbar}>
 
         <View style={styles.tab_top}>
-          <Text> chat </Text>
-          <Text> chat </Text>
-          <Text> chat </Text>
+          <Text> Logo </Text>
+          <Text> Search </Text>
+          <Text> Alert </Text>
+          <Text> Toggle </Text>
         </View>
 
         <View style={styles.tab}>
@@ -92,9 +93,7 @@ const Connect_screen = ({ navigation }) => {
 
 
 
-
       <View style={styles.user_body}>
-
         <FlatList
           data={data}
           renderItem={renderItem}
@@ -135,9 +134,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
   },
-
-
-
   user_body: {
     flex: 15,
     backgroundColor: 'white'
