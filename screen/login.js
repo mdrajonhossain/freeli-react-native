@@ -74,7 +74,7 @@ const Login = ({ navigation }) => {
                 onPress={() => {
                    console.log("Log in button click");
                 }}>
-              <Text style={styles.buttonText}>Sign In</Text>
+              <Text style={styles.buttonText}onPress = {() => navigation.navigate("connect")}>Sign In</Text>
             </TouchableOpacity>
           </View>
         </View>
