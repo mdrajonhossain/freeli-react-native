@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screen/Home';
 import Signup from './screen/Signup';
 import Login from './screen/login';
+import Connect_page from './screen/connect_page';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="signup" component={Signup} options={{ headerShown: false }} />
+        <Stack.Screen name="connect_page" component={Connect_page} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

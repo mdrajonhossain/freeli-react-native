@@ -40,10 +40,10 @@ const Login = ({ navigation }) => {
         <View style={{justifyContent: 'center', width: '100%', marginTop:50}}>
           <View
             style={{justifyContent: 'center', width: '100%'}}>
-            <Text adjustsFontSizeToFit style={styles.textColor1}>
+            <Text adjustsFontSizeToFit style={styles.welcomeTitleColor}>
               {appStr.login_welcom_title_str}
             </Text>
-            <Text adjustsFontSizeToFit style={styles.textColor2}>
+            <Text adjustsFontSizeToFit style={styles.welcomeMsgColor}>
             {appStr.login_welcom_msg_str}
             </Text>
           </View> 
@@ -51,7 +51,7 @@ const Login = ({ navigation }) => {
 
         {/* login screen body view */}
         <View>
-          <View style={{justifyContent: 'center', width: '100%', marginTop:30}}>
+          <View style={{justifyContent: 'center', width: '100%', marginTop:30, flexDirection:'column'}}>
             <Text style={{color:'#fff'}} >Email Address</Text>
             <TextInput
               style={styles.inputbox}

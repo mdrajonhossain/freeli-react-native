@@ -10,6 +10,7 @@ const logInStyleSheet =StyleSheet.create({
       height:'100%',
       paddingLeft: 20,
       paddingRight: 20,
+      paddingTop:50,
       flexDirection: 'column',
     },
     errorMessage: {
@@ -40,17 +41,17 @@ const logInStyleSheet =StyleSheet.create({
       fontSize: 20,
       textAlign: 'center',
     },
-    textColor1: {
+    welcomeTitleColor: {
       color: appColor.text_color_main_white,
       fontSize: 22,
       width: '100%',
       textAlign: 'center',
       fontStyle: 'normal',
     },
-    textColor2: {
+    welcomeMsgColor: {
       width: '100%',
       textAlign: 'center',
-      color: appColor.text_color_main_white,
+      color: appColor.text_color_main_blue,
       fontSize: 12,
     },
   });
