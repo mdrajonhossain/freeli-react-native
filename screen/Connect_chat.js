@@ -49,7 +49,7 @@ const data = [
 
 
 
-const Connect_screen = ({ navigation }) => {
+const Connect_chat = ({ navigation }) => {
 
 
   const renderItem = ({ item }) => (
@@ -150,4 +150,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Connect_screen;
+export default Connect_chat;

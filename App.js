@@ -7,9 +7,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screen/Home';
 import Signup from './screen/Signup';
 import Login from './screen/login';
-import Connect_screen from './screen/Connect_screen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import Connect_chat from './screen/Connect_chat';
+import Connect_call from './screen/Connect_call';
+import Connect_hub from './screen/Connect_hub';
 
 
 const Stack = createNativeStackNavigator();
@@ -24,7 +26,10 @@ function App() {
         <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="signup" component={Signup} options={{ headerShown: false }} />
-        <Stack.Screen name="connect" component={Connect_screen} options={{ headerShown: false }} />
+        
+        <Stack.Screen name="connect_chat" component={Connect_chat} options={{ headerShown: false }} />
+        <Stack.Screen name="connect_call" component={Connect_call} options={{ headerShown: false }} />
+        <Stack.Screen name="connect_hub" component={Connect_hub} options={{ headerShown: false }} />
       </Stack.Navigator>
 
     </NavigationContainer>
