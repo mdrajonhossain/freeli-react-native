@@ -24,6 +24,11 @@ const Login = ({ navigation }) => {
     return !Email.includes('@');
   };
 
+
+  const login = ()=>{
+    console.log("login")
+  }
+
   return (
     <>
       <StatusBar style="auto" />
@@ -81,7 +86,7 @@ const Login = ({ navigation }) => {
 
             <TouchableOpacity style={styles.button}
                 onPress = {() => navigation.navigate("connect")}>
-              <Text style={styles.buttonText}>Sign In</Text>
+              <Text style={styles.buttonText} onPress={()=>login()}>Sign In</Text>
             </TouchableOpacity>
           </View>
         </View>
