@@ -20,10 +20,9 @@ import axios from 'axios';
 
 
 const Login = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
-  var Email = email;
-  var Pass = pass;
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+
 
   const hasError = () => {
     return !Email.includes('@');
@@ -32,40 +31,45 @@ const Login = ({ navigation }) => {
 
   const requiestLogin = () => {
 
+ 
 
-    // console.log(email)
-    // console.log(pass)
+    var jsondata = {
+        "email": "smjubayercse@gmail.com",
+        "password": "abc123",
+        "gcm_id": "frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP",
+        "device_id": "e366824a8a86ee83",
+        "device_type": "android",
+        "lat": "",
+        "lang": "",
+        "city": "Lakshmipur",
+        "ipAddress": "103.138.27.165",
+        "countryName": "Bangladesh",
+        "continentCode": "AS",
+        "continentName": "Asia",
+        "countryCode": "BD",
+        "stateProv": "Chittagong",
+        "time": "Mar 6, 2023 at 5:56 PM"
+      }
+    
+ 
 
-    axios.post('https://cadevapicdn02.freeli.io/users/login_new', {
-      "email": "smjubayercse@gmail.com",
-      "password": "abc123",
-      "gcm_id": "frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP",
-      "device_id": "e366824a8a86ee83",
-      "device_type": "android",
-      "lat": "",
-      "lang": "",
-      "city": "Lakshmipur",
-      "ipAddress": "103.138.27.165",
-      "countryName": "Bangladesh",
-      "continentCode": "AS",
-      "continentName": "Asia",
-      "countryCode": "BD",
-      "stateProv": "Chittagong",
-      "time": "Mar 6, 2023 at 5:56 PM"
-    })
-      .then(function (response) {
-        console.log(response.data);
-        console.log(response.data.message);
-        navigation.navigate("connect_chat")
+      axios.post('https://cadevapicdn02.freeli.io/users/login_new', jsondata)
+        .then(function (response) {
+          if (response.data.message === "success") {
+            console.log(response.data.message);
+            navigation.navigate("connect_chat", {res : response})
+          }
 
-      })
-      .catch(function (error) {
-        console.log(111, error);
-      });
+        })
+        .catch(function (error) {
+          console.log(111, error);
+        });
 
-
+   
 
   }
+
+
 
 
 
@@ -99,6 +103,15 @@ const Login = ({ navigation }) => {
         <View>
           <View style={{ justifyContent: 'center', width: '100%', marginTop: 30, flexDirection: 'column' }}>
 
+<<<<<<< HEAD
+            <View style={{ flexDirection: 'column' }}>
+
+              <Text style={{ color: 'gray' }}>Your email</Text>
+              <TextInput
+                style={styles.inputbox}
+                placeholder="Email"
+                placeholderTextColor="gray"
+=======
             {/* email input box style */}
             <View style={styles.inputboxLayout}>
               <View>
@@ -107,25 +120,33 @@ const Login = ({ navigation }) => {
               <TextInput
                 style={styles.inputBox}
                 placeholder="example@hayven.com"
+>>>>>>> 8a3998ca26d83bd7842446b83721d540f26ed8da
                 placeholderTextColor={appColor.text_color_gray}
                 onChangeText={Email => setEmail(Email)}
               />
             </View>
+<<<<<<< HEAD
+
+            <View style={{ flexDirection: 'column' }}>
+              <Text style={{ color: 'gray' }}>Your password</Text>
+=======
           
           {/* password input box style */}
             <View style={styles.inputboxLayout}>
               <View>
                 <Entypo name="eye-with-line" size={25} color={appColor.app_theme_color_main_dark}/>
               </View>
+>>>>>>> 8a3998ca26d83bd7842446b83721d540f26ed8da
               <TextInput
                 style={styles.inputBox}
                 secureTextEntry={true}
                 autoCorrect={false}
-                placeholder="Enter Password"
+                placeholder="Password"
                 placeholderTextColor={appColor.text_color_gray}
                 onChangeText={Pass => setPass(Pass)}
               />
             </View>
+            <Text style={{ color: 'gray', fontSize: 11 }}>Mnimum 6 characters, one lowercase & one number</Text>
 
 
             <TouchableOpacity style={styles.signInButton}

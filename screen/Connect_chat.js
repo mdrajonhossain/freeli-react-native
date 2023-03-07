@@ -49,7 +49,14 @@ const data = [
 
 
 
-const Connect_chat = ({ navigation }) => {
+const Connect_chat = ({route, navigation }) => {
+
+
+  var { res } = route.params;
+
+
+  console.log(1234, res)
+  
 
 
   const renderItem = ({ item }) => (
@@ -134,8 +141,8 @@ const Connect_chat = ({ navigation }) => {
 
 
         <View style={styles.thread_message}>
-          <View style={styles.thread_message_text}><Text style={{color:'white', fontSize:16}}>Threaded message(s)</Text></View>
-          <View style={styles.thread_message_counter}><Text>46</Text></View>          
+          <View style={styles.thread_message_text}><Text style={{ color: 'white', fontSize: 16 }}>Threaded message(s)</Text></View>
+          <View style={styles.thread_message_counter}><Text>46</Text></View>
         </View>
 
 
@@ -197,7 +204,7 @@ const styles = StyleSheet.create({
   },
   thread_message: {
     flex: 5,
-    flexDirection:'row'
+    flexDirection: 'row'
   },
   thread_message_counter: {
     flex: 1
