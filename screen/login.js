@@ -19,10 +19,9 @@ import axios from 'axios';
 
 
 const Login = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [pass, setPass] = useState('');
-  var Email = email;
-  var Pass = pass;
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+
 
   const hasError = () => {
     return !Email.includes('@');
@@ -31,40 +30,45 @@ const Login = ({ navigation }) => {
 
   const requiestLogin = () => {
 
+ 
 
-    // console.log(email)
-    // console.log(pass)
+    var jsondata = {
+        "email": "smjubayercse@gmail.com",
+        "password": "abc123",
+        "gcm_id": "frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP",
+        "device_id": "e366824a8a86ee83",
+        "device_type": "android",
+        "lat": "",
+        "lang": "",
+        "city": "Lakshmipur",
+        "ipAddress": "103.138.27.165",
+        "countryName": "Bangladesh",
+        "continentCode": "AS",
+        "continentName": "Asia",
+        "countryCode": "BD",
+        "stateProv": "Chittagong",
+        "time": "Mar 6, 2023 at 5:56 PM"
+      }
+    
+ 
 
-    axios.post('https://cadevapicdn02.freeli.io/users/login_new', {
-      "email": "smjubayercse@gmail.com",
-      "password": "abc123",
-      "gcm_id": "frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP",
-      "device_id": "e366824a8a86ee83",
-      "device_type": "android",
-      "lat": "",
-      "lang": "",
-      "city": "Lakshmipur",
-      "ipAddress": "103.138.27.165",
-      "countryName": "Bangladesh",
-      "continentCode": "AS",
-      "continentName": "Asia",
-      "countryCode": "BD",
-      "stateProv": "Chittagong",
-      "time": "Mar 6, 2023 at 5:56 PM"
-    })
-      .then(function (response) {
-        console.log(response.data);
-        console.log(response.data.message);
-        navigation.navigate("connect_chat")
+      axios.post('https://cadevapicdn02.freeli.io/users/login_new', jsondata)
+        .then(function (response) {
+          if (response.data.message === "success") {
+            console.log(response.data.message);
+            navigation.navigate("connect_chat", {res : response})
+          }
 
-      })
-      .catch(function (error) {
-        console.log(111, error);
-      });
+        })
+        .catch(function (error) {
+          console.log(111, error);
+        });
 
-
+   
 
   }
+
+
 
 
 
@@ -100,28 +104,28 @@ const Login = ({ navigation }) => {
 
             <View style={{ flexDirection: 'column' }}>
 
-              <Text style={{ color: '#fff' }}>Email</Text>
+              <Text style={{ color: 'gray' }}>Your email</Text>
               <TextInput
                 style={styles.inputbox}
-                placeholder="example@hayven.com"
+                placeholder="Email"
+                placeholderTextColor="gray"
                 placeholderTextColor={appColor.text_color_gray}
                 onChangeText={Email => setEmail(Email)}
               />
             </View>
 
-
-
             <View style={{ flexDirection: 'column' }}>
-              <Text style={{ color: '#fff' }}>Password</Text>
+              <Text style={{ color: 'gray' }}>Your password</Text>
               <TextInput
                 style={styles.inputbox}
                 secureTextEntry={true}
                 autoCorrect={false}
-                placeholder="Enter Password"
+                placeholder="Password"
                 placeholderTextColor={appColor.text_color_gray}
                 onChangeText={Pass => setPass(Pass)}
               />
             </View>
+            <Text style={{ color: 'gray', fontSize: 11 }}>Mnimum 6 characters, one lowercase & one number</Text>
 
 
             <TouchableOpacity style={styles.button}
