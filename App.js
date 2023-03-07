@@ -15,6 +15,10 @@ import Connect_hub from './screen/Connect_hub';
 import ChattingScreen from './screen/ChattingScreen';
 
 import Signup_varifiycode from './screen/Signup_varifiycode';
+import Signup_userform from './screen/Signup_userform';
+import Signup_about_company from './screen/Signup_about_company';
+import Signup_create_password from './screen/Signup_create_password';
+import Signup_invite_admin from './screen/Signup_invite_admin';
 import Signup_varifiycode_submission from './screen/Signup_varifiycode_submission';
 
 
@@ -37,6 +41,10 @@ function App() {
         
                 
         <Stack.Screen name="signup_varifiy_code" component={Signup_varifiycode} options={{ headerShown: false }} />
+        <Stack.Screen name="signupuser_form" component={Signup_userform} options={{ headerShown: false }} />
+        <Stack.Screen name="signup_aboutcompany" component={Signup_about_company} options={{ headerShown: false }} />
+        <Stack.Screen name="signup_createpassword" component={Signup_create_password} options={{ headerShown: false }} />
+        <Stack.Screen name="Signup_inviteadmin" component={Signup_invite_admin} options={{ headerShown: false }} />
         <Stack.Screen name="signup_varifi_submit" component={Signup_varifiycode_submission} options={{ headerShown: false }} />
       
       
