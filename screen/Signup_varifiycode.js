@@ -130,10 +130,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     borderColor: "#a0d2fd",
-    color: 'white',
+    color: 'black ',
     textAlign: 'center',
     fontSize: 17,
     marginHorizontal: 5,
+    backgroundColor:'white'
   },
   verify_suggest_condition: {
     width: '95%',
