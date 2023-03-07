@@ -14,6 +14,9 @@ import Connect_call from './screen/Connect_call';
 import Connect_hub from './screen/Connect_hub';
 import ChattingScreen from './screen/ChattingScreen';
 
+import Signup_varifiycode from './screen/Signup_varifiycode';
+import Signup_varifiycode_submission from './screen/Signup_varifiycode_submission';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -31,10 +34,15 @@ function App() {
         <Stack.Screen name="connect_chat" component={Connect_chat} options={{ headerShown: false }} />
         <Stack.Screen name="connect_call" component={Connect_call} options={{ headerShown: false }} />
         <Stack.Screen name="connect_hub" component={Connect_hub} options={{ headerShown: false }} />
+        
+                
+        <Stack.Screen name="signup_varifiy_code" component={Signup_varifiycode} options={{ headerShown: false }} />
+        <Stack.Screen name="signup_varifi_submit" component={Signup_varifiycode_submission} options={{ headerShown: false }} />
+      
+      
 
         <Stack.Screen name="chatScreen" component={ChattingScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
-
     </NavigationContainer>
   );
 }

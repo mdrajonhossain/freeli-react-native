@@ -10,27 +10,20 @@ const data=null
 
 const Connect_chat = ({route, navigation }) => {
 
-  const [pin_convs, setPin_convs] = useState([]);
-  const [unpin_convs, setUnpin_convs] = useState([]);
 
   var { res } = route.params;
 
-  useEffect(() => {
-    
-    setPin_convs(res.data.pin_convs)
-    setUnpin_convs(...pin_convs, res.data.unpin_convs)
-  
-  },[]);
 
-  console.log(1234, res.data.pin_convs)
-  //data= res.data.pin_convs
+  console.log(1234, res)
   
 
 
   const renderItem = ({ item }) => (
-    <View style={{ flexDirection: 'row', paddingVertical: 5, borderBottomWidth: 0.5, borderBottomColor: 'lightgray', marginLeft: 10 }}>
-      <View >
 
+    <Pressable onPress={()=> navigation.navigate("chatScreen")}>
+      <View style={{ flexDirection: 'row', paddingVertical: 5, borderBottomWidth: 0.5, borderBottomColor: 'lightgray', marginLeft: 10 }}>
+      <View>
+        
         <Image
           source={{uri: item.conv_img}}
           style={styles.user_photo}
@@ -41,6 +34,7 @@ const Connect_chat = ({route, navigation }) => {
         <Text style={{ fontSize: 14, color: '#032e84' }}> {item.title}</Text>
       </View>
     </View>
+    </Pressable>
   );
 
 
@@ -100,6 +94,7 @@ const Connect_chat = ({route, navigation }) => {
           renderItem={renderItem}
           keyExtractor={index => index.toString()}
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ flexGrow: 1 }}
         />
       </View>
 
@@ -109,7 +104,7 @@ const Connect_chat = ({route, navigation }) => {
 
 
         <View style={styles.thread_message}>
-          <View style={styles.thread_message_text}><Text style={{ color: 'white', fontSize: 16 }}>Threaded message(s)</Text></View>
+          <View><Text style={{ color: 'white', fontSize: 16 }}>Threaded message(s)</Text></View>
           <View style={styles.thread_message_counter}><Text>46</Text></View>
         </View>
 
