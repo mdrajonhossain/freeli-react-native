@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Image, View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Image, View, Text, FlatList, TouchableOpacity,Pressable } from 'react-native';
 import Connect_tabbar from './Connect_tabbar';
 
 
@@ -56,7 +56,9 @@ const Connect_chat = ({navigation }) => {
 
 
   const renderItem = ({ item }) => (
-    <View style={{ flexDirection: 'row', paddingVertical: 5, borderBottomWidth: 0.5, borderBottomColor: 'lightgray', marginLeft: 10 }}>
+
+    <Pressable onPress={()=> navigation.navigate("chatScreen")}>
+      <View style={{ flexDirection: 'row', paddingVertical: 5, borderBottomWidth: 0.5, borderBottomColor: 'lightgray', marginLeft: 10 }}>
       <View>
         
         <Image
@@ -69,6 +71,7 @@ const Connect_chat = ({navigation }) => {
         <Text style={{ fontSize: 14, color: '#032e84' }}> {item.name}</Text>
       </View>
     </View>
+    </Pressable>
   );
 
 
@@ -128,6 +131,7 @@ const Connect_chat = ({navigation }) => {
           renderItem={renderItem}
           keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ flexGrow: 1 }}
         />
       </View>
 
@@ -137,7 +141,7 @@ const Connect_chat = ({navigation }) => {
 
 
         <View style={styles.thread_message}>
-          <View style={styles.thread_message_text}><Text style={{ color: 'white', fontSize: 16 }}>Threaded message(s)</Text></View>
+          <View><Text style={{ color: 'white', fontSize: 16 }}>Threaded message(s)</Text></View>
           <View style={styles.thread_message_counter}><Text>46</Text></View>
         </View>
 
