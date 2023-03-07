@@ -12,6 +12,7 @@ import styles from '../stylesheet/LoginStyleSheet';
 import appStr from '../AppDefaultStr';
 import appColor from '../AppColor';
 import Entypo from 'react-native-vector-icons/Entypo'
+import { ToastAndroid } from 'react-native';
 
 
 import axios from 'axios';
@@ -29,43 +30,52 @@ const Login = ({ navigation }) => {
   };
 
 
-  const requiestLogin = () => {
-
+ const requiestLogin = () => {
  
 
-    var jsondata = {
-        "email": "smjubayercse@gmail.com",
-        "password": "abc123",
-        "gcm_id": "frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP",
-        "device_id": "e366824a8a86ee83",
-        "device_type": "android",
-        "lat": "",
-        "lang": "",
-        "city": "Lakshmipur",
-        "ipAddress": "103.138.27.165",
-        "countryName": "Bangladesh",
-        "continentCode": "AS",
-        "continentName": "Asia",
-        "countryCode": "BD",
-        "stateProv": "Chittagong",
-        "time": "Mar 6, 2023 at 5:56 PM"
+console.log(email);
+console.log(pass);
+const reqData={
+  email: email,
+  password: pass,
+  gcm_id: 'frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP',
+  device_id: 'e366824a8a86ee83',
+  device_type: 'android',
+  lat: '',
+  lang: '',
+  city: 'Lakshmipur',
+  ipAddress: '103.138.27.165',
+  countryName: 'Bangladesh',
+  continentCode: 'AS',
+  continentName: 'Asia',
+  countryCode: 'BD',
+  stateProv: 'Chittagong',
+  time: 'Mar 6, 2023 at 5:56 PM'
+}
+
+    axios.post('https://cadevapicdn02.freeli.io/users/login_new', reqData,{
+      headers: {
+        'Content-Type': 'application/json'
       }
-    
- 
+      })
+      .then(function (response) {
+        
+if(response.data.message==="success"){
+ // console.log(response.data);
+  console.log(response.data.message);
+  console.log(response.data);
+  ToastAndroid.show('Login success!', ToastAndroid.SHORT);
+  navigation.navigate("connect_chat", {res : response})
+}else{
+  console.log("failed");
+  ToastAndroid.show('login failed!', ToastAndroid.SHORT);
+}
 
-      axios.post('https://cadevapicdn02.freeli.io/users/login_new', jsondata)
-        .then(function (response) {
-          if (response.data.message === "success") {
-            console.log(response.data.message);
-            navigation.navigate("connect_chat", {res : response})
-          }
+      })
+      .catch(function (error) {
+        console.log(111, error);
+      });
 
-        })
-        .catch(function (error) {
-          console.log(111, error);
-        });
-
-   
 
   }
 
@@ -133,7 +143,7 @@ const Login = ({ navigation }) => {
             <Text style={{ color: 'gray', fontSize: 11 }}>Mnimum 6 characters, one lowercase & one number</Text>
 
 
-            <TouchableOpacity style={styles.signInButton}
+            <TouchableOpacity style={styles.button}
               onPress={() => requiestLogin()}>
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>

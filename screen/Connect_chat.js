@@ -1,61 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect} from 'react';
 import { StyleSheet, Image, View, Text, FlatList, TouchableOpacity } from 'react-native';
 import Connect_tabbar from './Connect_tabbar';
 
 
+const data=null
 
-const data = [
-  { id: 1, name: 'Md. Mamun Or Rashid Rajon', email: 'john@example.com' },
-  { id: 2, name: 'Daily Meeting', email: 'jane@example.com' },
-  { id: 3, name: 'Sohel rana', email: 'bob@example.com' },
-  { id: 4, name: 'Everyone', email: 'alice@example.com' },
-  { id: 5, name: 'call test hangup', email: 'alice@example.com' },
-  { id: 6, name: 'ITL Team', email: 'alice@example.com' },
-  { id: 7, name: 'APK Call Testing 5', email: 'alice@example.com' },
-  { id: 8, name: 'Guest Room e', email: 'alice@example.com' },
-  { id: 9, name: 'Alamgir Hossain', email: 'alice@example.com' },
-  { id: 10, name: 'Itl Group', email: 'alice@example.com' },
-  { id: 11, name: 'Check Group', email: 'alice@example.com' },
-  { id: 12, name: 'Test Shakil', email: 'alice@example.com' },
-  { id: 13, name: 'Web Groups', email: 'alice@example.com' },
-  { id: 14, name: 'Monzurul Alam', email: 'alice@example.com' },
-  { id: 15, name: 'Mobile Call Test', email: 'alice@example.com' },
-  { id: 16, name: 'Alice', email: 'alice@example.com' },
-  { id: 17, name: 'Alice', email: 'alice@example.com' },
-  { id: 18, name: 'Alice', email: 'alice@example.com' },
-  { id: 19, name: 'Alice', email: 'alice@example.com' },
-  { id: 20, name: 'Alice', email: 'alice@example.com' },
-  { id: 21, name: 'Alice', email: 'alice@example.com' },
-  { id: 22, name: 'Alice', email: 'alice@example.com' },
-  { id: 23, name: 'Alice', email: 'alice@example.com' },
-  { id: 24, name: 'Alice', email: 'alice@example.com' },
-  { id: 25, name: 'Alice', email: 'alice@example.com' },
-  { id: 26, name: 'Alice', email: 'alice@example.com' },
-  { id: 27, name: 'Alice', email: 'alice@example.com' },
-  { id: 28, name: 'Alice', email: 'alice@example.com' },
-  { id: 29, name: 'Alice', email: 'alice@example.com' },
-  { id: 30, name: 'Alice', email: 'alice@example.com' },
-  { id: 31, name: 'Alice', email: 'alice@example.com' },
-  { id: 32, name: 'Alice', email: 'alice@example.com' },
-  { id: 33, name: 'Alice', email: 'alice@example.com' },
-  { id: 34, name: 'Alice', email: 'alice@example.com' },
-  { id: 35, name: 'Alice', email: 'alice@example.com' },
-  { id: 36, name: 'Alice', email: 'alice@example.com' },
-  { id: 37, name: 'Alice', email: 'alice@example.com' },
-  { id: 38, name: 'Alice', email: 'alice@example.com' },
-  { id: 39, name: 'Alice', email: 'alice@example.com' },
-  { id: 40, name: 'Alice', email: 'alice@example.com' },
-];
 
 
 
 const Connect_chat = ({route, navigation }) => {
 
+  const [pin_convs, setPin_convs] = useState([]);
+  const [unpin_convs, setUnpin_convs] = useState([]);
 
   var { res } = route.params;
 
+  useEffect(() => {
+    
+    setPin_convs(res.data.pin_convs)
+    setUnpin_convs(...pin_convs, res.data.unpin_convs)
+  
+  },[]);
 
-  console.log(1234, res)
+  console.log(1234, res.data.pin_convs)
+  //data= res.data.pin_convs
   
 
 
@@ -64,13 +32,13 @@ const Connect_chat = ({route, navigation }) => {
       <View >
 
         <Image
-          source={require('../assert/images/userphoto.jpg')}
+          source={{uri: item.conv_img}}
           style={styles.user_photo}
         />
       </View>
 
       <View style={{ paddingVertical: 10, marginLeft: 10 }}>
-        <Text style={{ fontSize: 14, color: '#032e84' }}> {item.name}</Text>
+        <Text style={{ fontSize: 14, color: '#032e84' }}> {item.title}</Text>
       </View>
     </View>
   );
@@ -128,9 +96,9 @@ const Connect_chat = ({route, navigation }) => {
 
       <View style={styles.user_body}>
         <FlatList
-          data={data}
+          data={unpin_convs}
           renderItem={renderItem}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={index => index.toString()}
           showsVerticalScrollIndicator={false}
         />
       </View>
