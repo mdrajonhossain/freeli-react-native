@@ -1,5 +1,5 @@
 import React, { useState,useEffect} from 'react';
-import { StyleSheet, Image, View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet,Pressable, Image, View, Text, FlatList, TouchableOpacity } from 'react-native';
 import Connect_tabbar from './Connect_tabbar';
 
 
@@ -10,12 +10,19 @@ const data=null
 
 const Connect_chat = ({route, navigation }) => {
 
+  const [pin_convs, setPin_convs] = useState([]);
+  const [unpin_convs, setUnpin_convs] = useState([]);
 
   var { res } = route.params;
 
 
   console.log(1234, res)
   
+  useEffect(() => {
+    setUnpin_convs(unpin_convs)
+    setPin_convs(...pin_convs,res.data.unpin_convs)
+
+  },[]);
 
 
   const renderItem = ({ item }) => (
@@ -90,7 +97,7 @@ const Connect_chat = ({route, navigation }) => {
 
       <View style={styles.user_body}>
         <FlatList
-          data={unpin_convs}
+          data={pin_convs}
           renderItem={renderItem}
           keyExtractor={index => index.toString()}
           showsVerticalScrollIndicator={false}
