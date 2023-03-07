@@ -55,6 +55,8 @@ const Login = ({ navigation }) => {
       .then(function (response) {
         console.log(response.data);
         console.log(response.data.message);
+        navigation.navigate("connect_chat")
+
       })
       .catch(function (error) {
         console.log(111, error);

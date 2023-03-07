@@ -78,10 +78,36 @@ const Connect_chat = ({ navigation }) => {
       <View style={styles.topbar}>
 
         <View style={styles.tab_top}>
-          <Text> Logo </Text>
-          <Text> Search </Text>
-          <Text> Alert </Text>
-          <Text> Toggle </Text>
+
+          <View style={{ flex: 1, flexDirection: 'row' }}>
+            <View style={{ flex: 5 }}>
+              <Image
+                source={require('../assert/logo/DarkLogo.png')}
+                style={styles.connect_logo}
+              />
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <Image
+                source={require('../assert/images/alert.png')}
+                style={styles.alert}
+              />
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <Image
+                source={require('../assert/images/searchh.png')}
+                style={styles.search}
+              />
+            </View>
+
+            <View style={{ flex: 1 }}>
+              <Image
+                source={require('../assert/images/toggle.png')}
+                style={styles.search}
+              />
+            </View>
+          </View>
         </View>
 
         <View style={styles.tab}>
@@ -104,7 +130,15 @@ const Connect_chat = ({ navigation }) => {
 
 
       <View style={styles.footer}>
-        <Text> testa </Text>
+
+
+
+        <View style={styles.thread_message}>
+          <View style={styles.thread_message_text}><Text style={{color:'white', fontSize:16}}>Threaded message(s)</Text></View>
+          <View style={styles.thread_message_counter}><Text>46</Text></View>          
+        </View>
+
+
       </View>
 
 
@@ -128,7 +162,12 @@ const styles = StyleSheet.create({
   },
   tab_top: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    width: '100%',
+    backgroundColor: '#0d2158',
+    height: '100%',
+    alignItems: 'center',
+    paddingLeft: 15
   },
   tab: {
     flexDirection: 'row',
@@ -143,8 +182,25 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 40
   },
+  connect_logo: {
+    width: 38,
+    height: 35
+  },
+  alert: {
+    width: 23,
+    height: 22
+  },
   footer: {
-    flex: 2
+    flex: 2,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  thread_message: {
+    flex: 5,
+    flexDirection:'row'
+  },
+  thread_message_counter: {
+    flex: 1
   }
 
 
