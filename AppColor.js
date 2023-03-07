@@ -9,7 +9,20 @@ const appColor = {
     text_color_gray: '#c6cbca',
     button_bag_color: '#191970',
     button_bag_color_off: '#8696CA',
-    button_bag_color_on: '#08193B'
+    button_bag_color_on: '#08193B',
+
+
+
+
+    appThemColor:'#023d67',
+    asaColor:'#e3e1e1',
+    white:'#ffffff',
+    black:'#000000',
+    asaHeader:'#eceff1',
+    red:'red',
+    coral:'coral',
+    gray:'gray',
+    blue:'#005eb5'
 
   }
 

@@ -32,47 +32,7 @@
                 {"angry":0},
                 {"thumsup":0},
                 {"thumsdown":0}
-            ],
-            "checklist":{}
-        },
-        {
-            "id": "2",
-            "name":"Maruf",
-            "messageBody":"I am fine",
-            "messageType":"checklist",
-            "last_updateAt":"11.20 PM",
-            "attach_img":[],
-            "other_file":[],
-            "audio_file":[],
-            "video_file":[],
-            "has_reply":"false",
-            "reply_count":0,
-            "last_reply_from":"",
-            "has_flaged":true,
-            "has_emojy":true,
-            "emojy_data":[
-                {"joy":3},
-                {"sad":2},
-                {"haha":2},
-                {"love":5},
-                {"angry":8},
-                {"thumsup":1},
-                {"thumsdown":9}
-            ],
-            "checklist":{
-                "checklist_title":"Title Checklist",
-                "checklist_item":[
-                    {"chekclist_id":"123451","checklist_body":"This article is about Wikipedia. For Wikipedia's home page, see Main Page. For the English edition, see English Wikipedia. For a list of Wikipedias in other languages, see List of Wikipedias. For other uses, see Wikipedia (disambiguation).","checklist_status":false},
-                    {"chekclist_id":"123452","checklist_body":"this is demo text","checklist_status":false},
-                    {"chekclist_id":"123453","checklist_body":"this is demo text","checklist_status":true},
-                    {"chekclist_id":"123454","checklist_body":"this is demo text","checklist_status":false},
-                    {"chekclist_id":"123455","checklist_body":"this is demo text","checklist_status":true},
-                    {"chekclist_id":"123456","checklist_body":"Other collaborative online encyclopedias were attempted before Wikipedia, but none were as successful.","checklist_status":false},
-                    {"chekclist_id":"123457","checklist_body":"this is demo big paragraph example text to check view","checklist_status":true},
-                    {"chekclist_id":"123458","checklist_body":"this is demo text","checklist_status":false},
-                    {"chekclist_id":"123459","checklist_body":"this is demo text","checklist_status":false}
-                ]
-            }
+            ]
         },
         {
             "id": "3",
@@ -97,8 +57,7 @@
             "last_reply_from":"Jahirul Islam",
             "has_flaged":false,
             "has_emojy":false,
-            "emojy_data":[],
-            "checklist":{}
+            "emojy_data":[]
         },
         {
             "id": "4",
@@ -118,8 +77,7 @@
             "last_reply_from":"",
             "has_flaged":true,
             "has_emojy":false,
-            "emojy_data":[],
-            "checklist":{}
+            "emojy_data":[]
         },
         {
             "id": "5",
@@ -140,8 +98,7 @@
             "last_reply_from":"",
             "has_flaged":true,
             "has_emojy":false,
-            "emojy_data":[],
-            "checklist":{}
+            "emojy_data":[]
         },
         {
             "id": "6",
@@ -169,8 +126,7 @@
                 {"angry":0},
                 {"thumsup":0},
                 {"thumsdown":0}
-            ],
-            "checklist":{}
+            ]
         },
         {
             "id": "7",
@@ -190,8 +146,7 @@
             "last_reply_from":"",
             "has_flaged":true,
             "has_emojy":false,
-            "emojy_data":[],
-            "checklist":{}
+            "emojy_data":[]
             
         },
         {
@@ -219,8 +174,7 @@
                 {"angry":0},
                 {"thumsup":0},
                 {"thumsdown":0}
-            ],
-            "checklist":{}
+            ]
         },
         {
             "id": "9",
@@ -241,8 +195,7 @@
             "last_reply_from":"",
             "has_flaged":false,
             "has_emojy":false,
-            "emojy_data":[],
-            "checklist":{}
+            "emojy_data":[]
         },
         {
             "id": "10",
@@ -267,8 +220,7 @@
             "last_reply_from":"",
             "has_flaged":false,
             "has_emojy":false,
-            "emojy_data":[],
-            "checklist":{}
+            "emojy_data":[]
         },
         {
             "id": "11",
@@ -291,8 +243,7 @@
             "last_reply_from":"",
             "has_flaged":false,
             "has_emojy":false,
-            "emojy_data":[],
-            "checklist":{}
+            "emojy_data":[]
         },
         {
             "id": "12",
@@ -324,8 +275,7 @@
                 {"angry":0},
                 {"thumsup":0},
                 {"thumsdown":0}
-            ],
-            "checklist":{}
+            ]
         },
         {
             "id": "13",
@@ -356,8 +306,7 @@
                 {"angry":0},
                 {"thumsup":0},
                 {"thumsdown":0}
-            ],
-            "checklist":{}
+            ]
         },
         {
             "id": "14",
@@ -388,8 +337,7 @@
                 {"angry":0},
                 {"thumsup":0},
                 {"thumsdown":0}
-            ],
-            "checklist":{}
+            ]
         },
         {
             "id": "15",
@@ -421,39 +369,7 @@
                 {"angry":0},
                 {"thumsup":0},
                 {"thumsdown":0}
-            ],
-            "checklist":{}
-        },
-        {
-            "id": "16",
-            "name":"Jahirul Islam",
-            "messageBody":"Hello, How are you",
-            "messageType":"checklist",
-            "last_updateAt":"11.20 PM",
-            "attach_img":[],
-            "other_file":[],
-            "audio_file":[],
-            "video_file":[],
-            "has_reply":"true",
-            "reply_count":1,
-            "last_reply_from":"Maruf",
-            "has_flaged":false,
-            "has_emojy":false,
-            "emojy_data":[],
-            "checklist":{
-                "checklist_title":"Title Checklist",
-                "checklist_item":[
-                    {"chekclist_id":"123461","checklist_body":"this is demo text","checklist_status":false},
-                    {"chekclist_id":"123462","checklist_body":"this is demo text","checklist_status":false},
-                    {"chekclist_id":"123463","checklist_body":"this is demo text","checklist_status":true},
-                    {"chekclist_id":"123464","checklist_body":"this is demo text","checklist_status":true},
-                    {"chekclist_id":"123465","checklist_body":"this is demo text","checklist_status":true},
-                    {"chekclist_id":"123466","checklist_body":"this is demo text","checklist_status":false},
-                    {"chekclist_id":"123467","checklist_body":"this is demo text","checklist_status":true},
-                    {"chekclist_id":"123468","checklist_body":"this is demo text","checklist_status":true},
-                    {"chekclist_id":"123469","checklist_body":"this is demo text","checklist_status":false}
-                ]
-            }
+            ]
         },
         {
             "id": "17",
@@ -481,8 +397,7 @@
                 {"angry":0},
                 {"thumsup":0},
                 {"thumsdown":0}
-            ],
-            "checklist":{}
+            ]
         }
     ]
 }
