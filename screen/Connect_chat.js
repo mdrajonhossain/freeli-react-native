@@ -49,20 +49,16 @@ const data = [
 
 
 
-const Connect_chat = ({route, navigation }) => {
+const Connect_chat = ({navigation }) => {
 
 
-  var { res } = route.params;
-
-
-  console.log(1234, res)
-  
+ 
 
 
   const renderItem = ({ item }) => (
     <View style={{ flexDirection: 'row', paddingVertical: 5, borderBottomWidth: 0.5, borderBottomColor: 'lightgray', marginLeft: 10 }}>
-      <View >
-
+      <View>
+        
         <Image
           source={require('../assert/images/userphoto.jpg')}
           style={styles.user_photo}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-const Signup = ({navigation}) => {
+const Signup = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,26 +13,35 @@ const Signup = ({navigation}) => {
     <View style={styles.container}>
       <Text style={styles.title}>Sign up</Text>
       <Text style={styles.get_stated}>Get stated with Workfreeli for free!
-</Text>
+      </Text>
+      <View style={{ width: '90%' }}>
+        <Text style={styles.sign_input_feld}>E-mail address <Text style={styles.sign_star}>*</Text></Text>
+        <Text style={styles.sign_attha}>@</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="example@workfreeli.com"
+          placeholderTextColor="gray"
+          value={email}
+          onChangeText={setEmail}
+          autoCapitalize="none"
+          keyboardType="email-address"
+        />
+      </View>
+      <Text style={styles.smalText}>Please use your work e-mail so we can help connect you with your team. This will be your username to login.
+      </Text>
 
-      <Text style={styles.sign_input_feld}>E-mail address</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="example@workfreeli.com"
-        placeholderTextColor="gray"
-        value={email}
-        onChangeText={setEmail}
-        autoCapitalize="none"
-        keyboardType="email-address"
-      />
-       <Text style={styles.smalText}>Please use your work e-mail so we can help connect you with your team. This will be your username to login.
-</Text>
-   
       <TouchableOpacity style={styles.button} onPress={handleSignup}>
-        <Text style={styles.buttonText}>Continue</Text>
+        <Text style={styles.buttonText} onPress={() => navigation.navigate('signup_varifiy_code')}>Continue</Text>
       </TouchableOpacity>
 
-      <Text style={styles.already_member}>Already a member ?  <Text style={styles.signin_text} onPress={() => navigation.navigate('login')}> Sign in</Text></Text>
+      <View style={{ marginTop: 15 }}>
+        <Text>
+          <Text style={styles.already_member}>Already a member ? </Text>
+          <Text style={styles.signin_text} onPress={() => navigation.navigate('login')}> Sign in</Text>
+        </Text>
+      </View>
+
+
     </View>
   );
 };
@@ -49,57 +58,68 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
-  get_stated:{
-  	fontSize: 15,
-    color: 'white',
+  get_stated: {
+    fontSize: 15,
+    color: '#a0d2fd',
     marginBottom: 60,
     marginTop: 10,
   },
   input: {
-    width: '90%',
     color: 'white',
     height: 50,
-    borderColor: '#ccc',
-    borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
     marginBottom: 20,
-    paddingLeft:25
+    paddingLeft: 60,
+    position: 'relative',
+    borderWidth: 1.4,
+    borderColor: '#a0d2fd'
+  },
+  sign_attha: {
+    position: 'absolute',
+    color: '#a0d2fd',
+    top: 33,
+    left: 20,
+    fontSize: 24
   },
   button: {
     backgroundColor: '#868fa3',
     borderRadius: 5,
-  	width: '90%',
-  	height: 50,  	
+    width: '90%',
+    height: 50,
     padding: 10,
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
-    fontSize:20,
+    fontSize: 20,
   },
   smalText: {
-    color: '#fff',
-    width: '90%',    
+    color: 'gray',
+    width: '90%',
     textAlign: 'left',
-    fontSize:10,
+    fontSize: 10,
     marginTop: -15,
     marginBottom: 40,
   },
-  sign_input_feld:{
+  sign_input_feld: {
     marginBottom: 10,
-  	color: '#fff',
+    color: '#a0d2fd',
     width: '90%',
-  	textAlign: 'left',
+    textAlign: 'left',
   },
-  already_member:{
-  	color:'white',
-  	marginTop:20
+  already_member: {
+    color: 'gray',
+    marginTop: 20
   },
-  signin_text:{
-  	color:'#0c6e47',
-  	fontSize:18
+  sign_star: {
+    color: 'red',
+    fontSize: 14
+  },
+  signin_text: {
+    color: '#a0d2fd',
+    fontSize: 17
   }
 });
 
