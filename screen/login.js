@@ -103,15 +103,6 @@ const Login = ({ navigation }) => {
         <View>
           <View style={{ justifyContent: 'center', width: '100%', marginTop: 30, flexDirection: 'column' }}>
 
-<<<<<<< HEAD
-            <View style={{ flexDirection: 'column' }}>
-
-              <Text style={{ color: 'gray' }}>Your email</Text>
-              <TextInput
-                style={styles.inputbox}
-                placeholder="Email"
-                placeholderTextColor="gray"
-=======
             {/* email input box style */}
             <View style={styles.inputboxLayout}>
               <View>
@@ -120,23 +111,16 @@ const Login = ({ navigation }) => {
               <TextInput
                 style={styles.inputBox}
                 placeholder="example@hayven.com"
->>>>>>> 8a3998ca26d83bd7842446b83721d540f26ed8da
                 placeholderTextColor={appColor.text_color_gray}
                 onChangeText={Email => setEmail(Email)}
               />
             </View>
-<<<<<<< HEAD
-
-            <View style={{ flexDirection: 'column' }}>
-              <Text style={{ color: 'gray' }}>Your password</Text>
-=======
           
           {/* password input box style */}
             <View style={styles.inputboxLayout}>
               <View>
                 <Entypo name="eye-with-line" size={25} color={appColor.app_theme_color_main_dark}/>
               </View>
->>>>>>> 8a3998ca26d83bd7842446b83721d540f26ed8da
               <TextInput
                 style={styles.inputBox}
                 secureTextEntry={true}
