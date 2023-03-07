@@ -11,6 +11,7 @@ import { useState } from 'react';
 import styles from '../stylesheet/LoginStyleSheet';
 import appStr from '../AppDefaultStr';
 import appColor from '../AppColor';
+import Entypo from 'react-native-vector-icons/Entypo'
 
 
 import axios from 'axios';
@@ -102,6 +103,7 @@ const Login = ({ navigation }) => {
         <View>
           <View style={{ justifyContent: 'center', width: '100%', marginTop: 30, flexDirection: 'column' }}>
 
+<<<<<<< HEAD
             <View style={{ flexDirection: 'column' }}>
 
               <Text style={{ color: 'gray' }}>Your email</Text>
@@ -109,15 +111,34 @@ const Login = ({ navigation }) => {
                 style={styles.inputbox}
                 placeholder="Email"
                 placeholderTextColor="gray"
+=======
+            {/* email input box style */}
+            <View style={styles.inputboxLayout}>
+              <View>
+                <Entypo name="email" size={25} color={appColor.app_theme_color_main_dark}/>
+              </View>
+              <TextInput
+                style={styles.inputBox}
+                placeholder="example@hayven.com"
+>>>>>>> 8a3998ca26d83bd7842446b83721d540f26ed8da
                 placeholderTextColor={appColor.text_color_gray}
                 onChangeText={Email => setEmail(Email)}
               />
             </View>
+<<<<<<< HEAD
 
             <View style={{ flexDirection: 'column' }}>
               <Text style={{ color: 'gray' }}>Your password</Text>
+=======
+          
+          {/* password input box style */}
+            <View style={styles.inputboxLayout}>
+              <View>
+                <Entypo name="eye-with-line" size={25} color={appColor.app_theme_color_main_dark}/>
+              </View>
+>>>>>>> 8a3998ca26d83bd7842446b83721d540f26ed8da
               <TextInput
-                style={styles.inputbox}
+                style={styles.inputBox}
                 secureTextEntry={true}
                 autoCorrect={false}
                 placeholder="Password"
@@ -128,7 +149,7 @@ const Login = ({ navigation }) => {
             <Text style={{ color: 'gray', fontSize: 11 }}>Mnimum 6 characters, one lowercase & one number</Text>
 
 
-            <TouchableOpacity style={styles.button}
+            <TouchableOpacity style={styles.signInButton}
               onPress={() => navigation.navigate("connect_chat")}>
               <Text style={styles.buttonText} onPress={() => requiestLogin()}>Sign In</Text>
             </TouchableOpacity>
