@@ -2,8 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 const Signup_varifiycode = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
 
 
   const [code, setCode] = useState('');
@@ -21,13 +20,13 @@ const Signup_varifiycode = ({ navigation }) => {
   };
 
   const handleCodeSubmit = () => {
-    // Do something with the verification code, e.g. submit it to a server
+
     console.log(code);
   };
 
 
   const handleSignup = () => {
-    // Handle signup logic here
+
   };
 
 
@@ -41,7 +40,7 @@ const Signup_varifiycode = ({ navigation }) => {
 
 
       <View style={styles.request_suggest}>
-        <Text style={{ color: '#a0d2fd', fontSize: 10 }}>Please enter the activation code that has been sent to you.</Text>
+        <Text style={{ color:'#a0d2fd', fontSize: 10 }}>Please enter the activation code that has been sent to you.</Text>
       </View>
 
       <View style={styles.verify_input_feild}>
@@ -65,7 +64,7 @@ const Signup_varifiycode = ({ navigation }) => {
 
 
       <TouchableOpacity style={styles.button} onPress={handleSignup}>
-        <Text style={styles.buttonText} onPress={() => navigation.navigate('signup_varifi_submit')}>Continue</Text>
+        <Text style={styles.buttonText} onPress={() => navigation.navigate('signupuser_form')}>Continue</Text>
       </TouchableOpacity>
 
       <View style={{ marginTop: 15 }}>
@@ -130,11 +129,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     borderColor: "#a0d2fd",
-    color: 'black ',
+    color: 'black',
     textAlign: 'center',
     fontSize: 17,
     marginHorizontal: 5,
-    backgroundColor:'white'
+    backgroundColor: 'white',
   },
   verify_suggest_condition: {
     width: '95%',
