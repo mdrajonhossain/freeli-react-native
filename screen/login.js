@@ -11,6 +11,7 @@ import { useState } from 'react';
 import styles from '../stylesheet/LoginStyleSheet';
 import appStr from '../AppDefaultStr';
 import appColor from '../AppColor';
+import Entypo from 'react-native-vector-icons/Entypo'
 
 
 import axios from 'axios';
@@ -98,23 +99,26 @@ const Login = ({ navigation }) => {
         <View>
           <View style={{ justifyContent: 'center', width: '100%', marginTop: 30, flexDirection: 'column' }}>
 
-            <View style={{ flexDirection: 'column' }}>
-
-              <Text style={{ color: '#fff' }}>Email</Text>
+            {/* email input box style */}
+            <View style={styles.inputboxLayout}>
+              <View>
+                <Entypo name="email" size={25} color={appColor.app_theme_color_main_dark}/>
+              </View>
               <TextInput
-                style={styles.inputbox}
+                style={styles.inputBox}
                 placeholder="example@hayven.com"
                 placeholderTextColor={appColor.text_color_gray}
                 onChangeText={Email => setEmail(Email)}
               />
             </View>
-
-
-
-            <View style={{ flexDirection: 'column' }}>
-              <Text style={{ color: '#fff' }}>Password</Text>
+          
+          {/* password input box style */}
+            <View style={styles.inputboxLayout}>
+              <View>
+                <Entypo name="eye-with-line" size={25} color={appColor.app_theme_color_main_dark}/>
+              </View>
               <TextInput
-                style={styles.inputbox}
+                style={styles.inputBox}
                 secureTextEntry={true}
                 autoCorrect={false}
                 placeholder="Enter Password"
@@ -124,7 +128,7 @@ const Login = ({ navigation }) => {
             </View>
 
 
-            <TouchableOpacity style={styles.button}
+            <TouchableOpacity style={styles.signInButton}
               onPress={() => navigation.navigate("connect_chat")}>
               <Text style={styles.buttonText} onPress={() => requiestLogin()}>Sign In</Text>
             </TouchableOpacity>

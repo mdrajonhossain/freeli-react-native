@@ -18,17 +18,20 @@ const logInStyleSheet =StyleSheet.create({
       color: 'red',
       marginLeft: -80,
     },
-    inputbox: {
+    inputboxLayout: {
       width: '100%',
       height: 50,
       borderRadius: 5,
+      flexDirection:'row',
+      justifyContent:'flex-start',
+      alignItems:'center',
       borderColor: '#023d67',
       backgroundColor: appColor.text_color_main_white,
       color: appColor.app_theme_color_main_dark,
       marginVertical: 10,
       paddingHorizontal: 10,
     },
-    button: {
+    signInButton: {
       width: '100%',
       height: 50,
       borderRadius: 5,
@@ -54,6 +57,12 @@ const logInStyleSheet =StyleSheet.create({
       color: appColor.text_color_main_blue,
       fontSize: 12,
     },
+    inputBox:{
+      flex:1,
+      paddingLeft:10,
+      paddingRight:5,
+      width: '100%',
+    }
   });
   
 export default logInStyleSheet;
