@@ -129,8 +129,8 @@ const Login = ({ navigation }) => {
 
 
             <TouchableOpacity style={styles.signInButton}
-              onPress={() => navigation.navigate("connect_chat")}>
-              <Text style={styles.buttonText} onPress={() => requiestLogin()}>Sign In</Text>
+              onPress={() => requiestLogin()}>
+              <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
           </View>
         </View>

@@ -12,6 +12,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Connect_chat from './screen/Connect_chat';
 import Connect_call from './screen/Connect_call';
 import Connect_hub from './screen/Connect_hub';
+import ChattingScreen from './screen/ChattingScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -30,6 +31,8 @@ function App() {
         <Stack.Screen name="connect_chat" component={Connect_chat} options={{ headerShown: false }} />
         <Stack.Screen name="connect_call" component={Connect_call} options={{ headerShown: false }} />
         <Stack.Screen name="connect_hub" component={Connect_hub} options={{ headerShown: false }} />
+
+        <Stack.Screen name="chatScreen" component={ChattingScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
 
     </NavigationContainer>
