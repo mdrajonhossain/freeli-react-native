@@ -7,15 +7,26 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import styles from '../stylesheet/LoginStyleSheet';
 import appStr from '../AppDefaultStr';
 import appColor from '../AppColor';
 import Entypo from 'react-native-vector-icons/Entypo'
 import { ToastAndroid } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 
 import axios from 'axios';
+
+
+global.continentName = "";
+global.city = "";
+global.continentName = "";
+global.ipAddress = "";
+global.ipAddress = "";
+global.continentCode = "";
+global.stateProv = "";
+global.time = "";
 
 
 
@@ -30,12 +41,19 @@ const Login = ({ navigation }) => {
     return !Email.includes('@');
   };
 
+  useEffect(() => {
+   requiestLocation();
+  },[]);
+
 
  const requiestLogin = () => {
  
+  if (email === '' || email === null|| pass === '' || pass === null) {
+    // do something
+    ToastAndroid.show('Please enter email and password!', ToastAndroid.SHORT);
+    return
+  }
 
-console.log(email);
-console.log(pass);
 const reqData={
   email: email,
   password: pass,
@@ -44,15 +62,17 @@ const reqData={
   device_type: 'android',
   lat: '',
   lang: '',
-  city: 'Lakshmipur',
-  ipAddress: '103.138.27.165',
-  countryName: 'Bangladesh',
-  continentCode: 'AS',
-  continentName: 'Asia',
-  countryCode: 'BD',
-  stateProv: 'Chittagong',
+  city: city,
+  ipAddress: ipAddress,
+  countryName: countryName,
+  continentCode: continentCode,
+  continentName: continentName,
+  countryCode: countryCode,
+  stateProv: stateProv,
   time: 'Mar 6, 2023 at 5:56 PM'
 }
+
+console.log(reqData);
 
     axios.post('https://cadevapicdn02.freeli.io/users/login_new', reqData,{
       headers: {
@@ -62,26 +82,51 @@ const reqData={
       .then(function (response) {
         
 if(response.data.message==="success"){
- // console.log(response.data);
   console.log(response.data.message);
-  console.log(response.data);
   ToastAndroid.show('Login success!', ToastAndroid.SHORT);
   navigation.navigate("connect_chat", {res : response})
 }else{
-  console.log("failed");
+
   ToastAndroid.show('login failed!', ToastAndroid.SHORT);
 }
 
       })
       .catch(function (error) {
-        console.log(111, error);
+        ToastAndroid.show(error, ToastAndroid.SHORT);
       });
 
 
   }
 
 
+  const requiestLocation = () => {
+ 
+    axios.get('https://api.db-ip.com/v2/free/self')
+    .then(response => {
 
+     
+      console.log(response.data);
+      // handle response data
+      countryName=response.data.countryName;
+      city=response.data.city;
+      ipAddress=response.data.ipAddress;
+      countryCode=response.data.countryCode;
+      continentName=response.data.continentName;
+      stateProv=response.data.city;
+      const currentTime = new Date();
+      console.log("date ",currentTime);
+      const deviceId = DeviceInfo.getUniqueId();
+      console.log("device",deviceId); // prints the device ID to the console
+
+    
+      
+    })
+    .catch(error => {
+      console.error(error);
+      // handle error
+    });
+  
+    }
 
 
 
