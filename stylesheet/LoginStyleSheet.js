@@ -71,6 +71,7 @@ const logInStyleSheet =StyleSheet.create({
       paddingLeft:10,
       paddingRight:5,
       width: '100%',
+      color:appColor.text_color_main_white
     }
   });
   
