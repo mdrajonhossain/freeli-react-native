@@ -37,9 +37,28 @@ const Login = ({ navigation }) => {
   const [passError, setPassError] = useState(false);
 
 
-  const hasError = () => {
-    return !Email.includes('@');
-  };
+
+  const emaiValidate = () => {
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if (reg.test(email) === false) {
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  const passwordValidate = () => {
+    let reg = /^((?=.*[a-z])|(?=.*[A-Z]))(?=.*[0-9])(?=.{6,})/;
+
+    if(reg.test(pass) === false){
+      return false;
+    }
+    else{
+      return true;
+    }
+
+  }
 
   useEffect(() => {
    requiestLocation();
@@ -168,11 +187,13 @@ if(response.data.message==="success"){
                 style={styles.inputBox}
                 placeholder="example@hayven.com"
                 placeholderTextColor={appColor.text_color_gray}
-                onChangeText={Email => setEmail(Email)}
+                onChangeText={Email => {
+                  setEmail(Email);
+                }}
               />
             </View>
           
-          {/* password input box style */}
+           {/* password input box style */}
             <View style={styles.inputboxLayout}>
               <View>
                 <Entypo name="eye-with-line" size={25} color={appColor.app_color_main_blue}/>
@@ -207,7 +228,15 @@ if(response.data.message==="success"){
 
             {/* sign in button style */}
             <TouchableOpacity style={styles.signInButton}
-              onPress={() => requiestLogin()}>
+              onPress={() => {
+                if(emaiValidate() && passwordValidate()){
+                  requiestLogin();
+                
+                }
+                else{
+                  ToastAndroid.show('Please enter correct value', ToastAndroid.SHORT);
+                }
+                }}>
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
 
@@ -221,7 +250,7 @@ if(response.data.message==="success"){
 
             </View>
 
-            
+
             
           </View>
         </View>
