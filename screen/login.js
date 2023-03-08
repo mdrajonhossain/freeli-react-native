@@ -23,6 +23,7 @@ import axios from 'axios';
 const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [passError, setPassError] = useState(false);
 
 
   const hasError = () => {
@@ -116,7 +117,7 @@ if(response.data.message==="success"){
             {/* email input box style */}
             <View style={styles.inputboxLayout}>
               <View>
-                <Entypo name="email" size={25} color={appColor.app_theme_color_main_dark}/>
+                <Entypo name="email" size={25} color={appColor.app_color_main_blue}/>
               </View>
               <TextInput
                 style={styles.inputBox}
@@ -129,7 +130,7 @@ if(response.data.message==="success"){
           {/* password input box style */}
             <View style={styles.inputboxLayout}>
               <View>
-                <Entypo name="eye-with-line" size={25} color={appColor.app_theme_color_main_dark}/>
+                <Entypo name="eye-with-line" size={25} color={appColor.app_color_main_blue}/>
               </View>
               <TextInput
                 style={styles.inputBox}
@@ -140,13 +141,43 @@ if(response.data.message==="success"){
                 onChangeText={Pass => setPass(Pass)}
               />
             </View>
-            <Text style={{ color: 'gray', fontSize: 11 }}>Mnimum 6 characters, one lowercase & one number</Text>
+            {/* password miss match text style */}
+
+            {passError ? <Text style={{ color: 'gray', fontSize: 11 }}>Mnimum 6 characters, one lowercase & one number</Text> : <View></View>}
+            
 
 
-            <TouchableOpacity style={styles.button}
+            {/* sign in with otp and frogot password style */}
+            <View style={{justifyContent:'flex-start',alignItems:'center',width:'100%',
+                          height:50,flexDirection:'row'}} >
+
+              <Text style={styles.textBlueLight}>Sign in with OTP?</Text>
+
+              <View style={{width:'100%',height:'100%',flexDirection:'row-reverse',flex:1,
+                            justifyContent:'flex-start',alignItems:'center'}}>
+                <Text style={styles.textBlueLight}>Forgot Your Password?</Text>
+              </View>
+
+            </View>
+
+            {/* sign in button style */}
+            <TouchableOpacity style={styles.signInButton}
               onPress={() => requiestLogin()}>
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
+
+            {/* sign in button style */}
+
+            <View style={{flexDirection:'row',justifyContent:'center',marginTop:10}}>
+
+              <Text style={styles.defaultMsgColor}>Privacy Policy </Text>
+              <Text style={styles.defaultMsgColor}>|</Text>
+              <Text style={styles.defaultMsgColor}> Contact</Text>
+
+            </View>
+
+            
+            
           </View>
         </View>
       </View>

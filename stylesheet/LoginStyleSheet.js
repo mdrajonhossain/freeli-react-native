@@ -25,9 +25,9 @@ const logInStyleSheet =StyleSheet.create({
       flexDirection:'row',
       justifyContent:'flex-start',
       alignItems:'center',
-      borderColor: '#023d67',
-      backgroundColor: appColor.text_color_main_white,
-      color: appColor.app_theme_color_main_dark,
+      borderColor: appColor.app_theme_border_color,
+      borderWidth: 1,
+      backgroundColor: appColor.app_transparent_color,
       marginVertical: 10,
       paddingHorizontal: 10,
     },
@@ -44,6 +44,10 @@ const logInStyleSheet =StyleSheet.create({
       fontSize: 20,
       textAlign: 'center',
     },
+    textBlueLight: {
+      color: appColor.text_color_main_blue_light,
+      fontSize: 16
+    },
     welcomeTitleColor: {
       color: appColor.text_color_main_white,
       fontSize: 22,
@@ -55,6 +59,11 @@ const logInStyleSheet =StyleSheet.create({
       width: '100%',
       textAlign: 'center',
       color: appColor.text_color_main_blue,
+      fontSize: 12,
+    },
+    defaultMsgColor: {
+      textAlign: 'center',
+      color: appColor.text_color_main_white,
       fontSize: 12,
     },
     inputBox:{
