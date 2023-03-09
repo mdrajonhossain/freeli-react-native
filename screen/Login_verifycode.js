@@ -1,7 +1,18 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import axios from 'axios';
 
-const Login_verifycode = ({ navigation }) => {
+
+
+const Login_verifycode = ({ route, navigation }) => {
+
+
+
+  var { userinfo } = route.params;
+
+
+  console.log(1234, userinfo)
+
 
 
 
@@ -21,8 +32,48 @@ const Login_verifycode = ({ navigation }) => {
   };
 
 
+
   const handleSignup = () => {
-    console.log(4444, code)
+
+
+
+
+
+
+    const opt_reqData = {
+      email: userinfo.email,
+      password: userinfo.password,
+      code: code,
+      device_id: 'e366824a8a86ee83',
+      device_type: 'android',
+      ipAddress: ipAddress,
+      countryName: countryName,
+      city: city,
+      time: 'Mar 6, 2023 at 5:56 PM',
+      gcm_id: 'frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP',
+      xmpp_token: 'xmpptoken',
+      // company_id: "f4e2ccb0-5a3a-11ec-9799-a4ea5366ede0"
+    }
+
+
+
+    axios.post("https://caapicdn02.freeli.io/v2/users/login", opt_reqData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(function (response) {
+        console.log(5555, response.data.companies);
+
+        navigation.navigate("login_companylist", {userinfodata:opt_reqData, companies: response.data.companies});
+      })
+      .catch(function (error) {
+        console.log(999, error)
+        ToastAndroid.show(error, ToastAndroid.SHORT);
+      });
+
+
+
   }
 
   return (

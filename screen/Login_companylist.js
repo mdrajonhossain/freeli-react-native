@@ -16,36 +16,61 @@ import { useState } from 'react';
 import appStr from '../AppDefaultStr';
 import appColor from '../AppColor';
 import Entypo from 'react-native-vector-icons/Entypo'
+import axios from 'axios';
+
+
+
+const Login_companylist = ({ route, navigation }) => {
 
 
 
 
-const Login_companylist = ({ navigation }) => {
+  var { userinfodata, companies } = route.params;
+  console.log(1234, userinfodata)
 
-  const company = [
-    { id: "1", name: "sITL company" },
-    { id: "2", name: "aITL company" },
-    { id: "3", name: "eITL company" },
-    { id: "4", name: "gITL company" },
-    { id: "5", name: "gITL company" },
-    { id: "6", name: "ITL ecompany" },
-    { id: "7", name: "ITL excompany" },
-    { id: "8", name: "ITL gwcompany" },
-    { id: "9", name: "ITL bgcompany" },
-    { id: "10", name: "ITL hcompany" },
-    { id: "11", name: "ITL jcompany" },
-    { id: "12", name: "ITL ucompany" },
-    { id: "13", name: "ITL jjcompany" },
-    { id: "14", name: "ITL ytcompany" },
-    { id: "15", name: "ITL company" },
-  ]
 
+
+
+  const handleSignup = async (item) => {
+    console.log(item._id)
+
+    const opt_reqData = {
+      email: userinfodata.email,
+      password: userinfodata.password,
+      code: '',
+      device_id: 'e366824a8a86ee83',
+      device_type: 'android',
+      ipAddress: ipAddress,
+      countryName: countryName,
+      city: city,
+      time: 'Mar 6, 2023 at 5:56 PM',
+      gcm_id: 'frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP',
+      xmpp_token: 'xmpptoken',
+      company_id: item._id
+    }
+
+    await axios.post("https://caapicdn02.freeli.io/v2/users/login", opt_reqData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(function (response) {
+        console.log(124, response.data.message);
+      })
+      .catch(function (error) {
+        console.log(999, error)
+        ToastAndroid.show(error, ToastAndroid.SHORT);
+      });
+
+
+
+  }
 
 
   const renderItem = ({ item }) => (
     <Pressable>
       <View style={{ height: 50, borderRadius: 10, marginTop: 10, borderWidth: 1, borderColor: 'white', backgroundColor: '#0c1e47', padding: 10 }}>
-        <Text style={{ color: 'white', textAlign: 'center' }}>{item.name}</Text>
+        <Text style={{ color: 'white', textAlign: 'center' }} onPress={() => handleSignup(item)}>{item.company_name}</Text>
       </View>
     </Pressable>
   );
@@ -58,9 +83,9 @@ const Login_companylist = ({ navigation }) => {
 
       <View style={{ height: '51%', width: '80%', marginTop: 30 }}>
         <FlatList
-          data={company}
+          data={companies}
           renderItem={renderItem}
-          keyExtractor={(item) => item.id.toString()}
+          keyExtractor={this._keyExtractor}
           showsVerticalScrollIndicator={false}
         />
       </View>

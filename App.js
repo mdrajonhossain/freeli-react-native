@@ -57,7 +57,7 @@ function App() {
         {/* <Stack.Screen name="filehubs" component={File_hubs} options={{ headerShown: false }} /> */}
 
         <Stack.Screen name="login_companylist" component={Login_companylist} options={{ headerShown: false }} />
-        <Stack.Screen name="login_verify_code" component={Login_verifycode} options={{ headerShown: false }} />
+        <Stack.Screen name="login_otp" component={Login_verifycode} options={{ headerShown: false }} />
 
 
         <Stack.Screen name="chatScreen" component={ChattingScreen} options={{ headerShown: false }} />

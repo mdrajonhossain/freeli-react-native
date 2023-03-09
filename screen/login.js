@@ -7,15 +7,26 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../stylesheet/LoginStyleSheet';
 import appStr from '../AppDefaultStr';
 import appColor from '../AppColor';
 import Entypo from 'react-native-vector-icons/Entypo'
 import { ToastAndroid } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 
 import axios from 'axios';
+
+
+global.continentName = "";
+global.city = "";
+global.continentName = "";
+global.ipAddress = "";
+global.ipAddress = "";
+global.continentCode = "";
+global.stateProv = "";
+global.time = "";
 
 
 
@@ -26,62 +37,120 @@ const Login = ({ navigation }) => {
   const [passError, setPassError] = useState(false);
 
 
-  const hasError = () => {
-    return !Email.includes('@');
-  };
+
+  const emaiValidate = () => {
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if (reg.test(email) === false) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
+  const passwordValidate = () => {
+    let reg = /^((?=.*[a-z])|(?=.*[A-Z]))(?=.*[0-9])(?=.{6,})/;
+
+    if (reg.test(pass) === false) {
+      return false;
+    }
+    else {
+      return true;
+    }
+
+  }
+
+  useEffect(() => {
+    requiestLocation();
+  }, []);
 
 
- const requiestLogin = () => {
- 
 
-console.log(email);
-console.log(pass);
-const reqData={
-  email: email,
-  password: pass,
-  gcm_id: 'frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP',
-  device_id: 'e366824a8a86ee83',
-  device_type: 'android',
-  lat: '',
-  lang: '',
-  city: 'Lakshmipur',
-  ipAddress: '103.138.27.165',
-  countryName: 'Bangladesh',
-  continentCode: 'AS',
-  continentName: 'Asia',
-  countryCode: 'BD',
-  stateProv: 'Chittagong',
-  time: 'Mar 6, 2023 at 5:56 PM'
-}
+  const requiestLogin = () => {
 
-    axios.post('https://cadevapicdn02.freeli.io/users/login_new', reqData,{
+
+
+    if (email === '' || email === null || pass === '' || pass === null) {
+      // do something
+      ToastAndroid.show('Please enter email and password!', ToastAndroid.SHORT);
+      return
+    }
+
+    const reqData = {
+      email: email,
+      password: pass,
+      code: '',
+      device_id: 'e366824a8a86ee83',
+      device_type: 'android',
+      ipAddress: ipAddress,
+      countryName: countryName,
+      city: city,
+      time: 'Mar 6, 2023 at 5:56 PM',
+      gcm_id: 'frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP',
+      xmpp_token: 'xmpptoken',
+      // company_id: "f4e2ccb0-5a3a-11ec-9799-a4ea5366ede0"
+    }
+
+    console.log(reqData);
+
+    axios.post("https://caapicdn02.freeli.io/v2/users/login", reqData, {
       headers: {
         'Content-Type': 'application/json'
       }
-      })
+    })
       .then(function (response) {
-        
-if(response.data.message==="success"){
- // console.log(response.data);
-  console.log(response.data.message);
-  console.log(response.data);
-  ToastAndroid.show('Login success!', ToastAndroid.SHORT);
-  navigation.navigate("connect_chat", {res : response})
-}else{
-  console.log("failed");
-  ToastAndroid.show('login failed!', ToastAndroid.SHORT);
-}
+        console.log(response.data);
+        if (response.data.message === "success") {
+
+          ToastAndroid.show(response.data.message, ToastAndroid.SHORT);
+          navigation.navigate("connect_chat", { res: response })
+        } else if (response.data.message === "Please check your email, to verify its you...") {
+          // otp
+          navigation.navigate("login_otp", {userinfo: reqData});
+
+          ToastAndroid.show(response.data.message, ToastAndroid.SHORT);
+        } else {
+
+          // ToastAndroid.show(response.data.message, ToastAndroid.SHORT);
+        }
 
       })
       .catch(function (error) {
-        console.log(111, error);
+        ToastAndroid.show(error, ToastAndroid.SHORT);
       });
 
 
   }
 
 
+  const requiestLocation = () => {
 
+    axios.get('https://api.db-ip.com/v2/free/self')
+      .then(response => {
+
+
+        console.log(response.data);
+        // handle response data
+        countryName = response.data.countryName;
+        city = response.data.city;
+        ipAddress = response.data.ipAddress;
+        countryCode = response.data.countryCode;
+        continentName = response.data.continentName;
+        stateProv = response.data.city;
+        const currentTime = new Date();
+        console.log("date ", currentTime);
+        const deviceId = DeviceInfo.getUniqueId();
+        console.log("device", deviceId); // prints the device ID to the console
+
+
+
+      })
+      .catch(error => {
+        console.error(error);
+        // handle error
+      });
+
+  }
 
 
 
@@ -117,20 +186,22 @@ if(response.data.message==="success"){
             {/* email input box style */}
             <View style={styles.inputboxLayout}>
               <View>
-                <Entypo name="email" size={25} color={appColor.app_color_main_blue}/>
+                <Entypo name="email" size={25} color={appColor.app_color_main_blue} />
               </View>
               <TextInput
                 style={styles.inputBox}
                 placeholder="example@hayven.com"
                 placeholderTextColor={appColor.text_color_gray}
-                onChangeText={Email => setEmail(Email)}
+                onChangeText={Email => {
+                  setEmail(Email);
+                }}
               />
             </View>
-          
-          {/* password input box style */}
+
+            {/* password input box style */}
             <View style={styles.inputboxLayout}>
               <View>
-                <Entypo name="eye-with-line" size={25} color={appColor.app_color_main_blue}/>
+                <Entypo name="eye-with-line" size={25} color={appColor.app_color_main_blue} />
               </View>
               <TextInput
                 style={styles.inputBox}
@@ -144,17 +215,21 @@ if(response.data.message==="success"){
             {/* password miss match text style */}
 
             {passError ? <Text style={{ color: 'gray', fontSize: 11 }}>Mnimum 6 characters, one lowercase & one number</Text> : <View></View>}
-            
+
 
 
             {/* sign in with otp and frogot password style */}
-            <View style={{justifyContent:'flex-start',alignItems:'center',width:'100%',
-                          height:50,flexDirection:'row'}} >
+            <View style={{
+              justifyContent: 'flex-start', alignItems: 'center', width: '100%',
+              height: 50, flexDirection: 'row'
+            }} >
 
               <Text style={styles.textBlueLight}>Sign in with OTP?</Text>
 
-              <View style={{width:'100%',height:'100%',flexDirection:'row-reverse',flex:1,
-                            justifyContent:'flex-start',alignItems:'center'}}>
+              <View style={{
+                width: '100%', height: '100%', flexDirection: 'row-reverse', flex: 1,
+                justifyContent: 'flex-start', alignItems: 'center'
+              }}>
                 <Text style={styles.textBlueLight}>Forgot Your Password?</Text>
               </View>
 
@@ -162,13 +237,21 @@ if(response.data.message==="success"){
 
             {/* sign in button style */}
             <TouchableOpacity style={styles.signInButton}
-              onPress={() => requiestLogin()}>
+              onPress={() => {
+                if (emaiValidate() && passwordValidate()) {
+                  requiestLogin();
+
+                }
+                else {
+                  ToastAndroid.show('Please enter valid email and password!', ToastAndroid.SHORT);
+                }
+              }}>
               <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
 
             {/* sign in button style */}
 
-            <View style={{flexDirection:'row',justifyContent:'center',marginTop:10}}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 10 }}>
 
               <Text style={styles.defaultMsgColor}>Privacy Policy </Text>
               <Text style={styles.defaultMsgColor}>|</Text>
@@ -176,8 +259,8 @@ if(response.data.message==="success"){
 
             </View>
 
-            
-            
+
+
           </View>
         </View>
       </View>
