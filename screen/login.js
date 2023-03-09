@@ -64,8 +64,11 @@ const Login = ({ navigation }) => {
    requiestLocation();
   },[]);
 
+  
 
  const requiestLogin = () => {
+
+
  
   if (email === '' || email === null|| pass === '' || pass === null) {
     // do something
@@ -99,14 +102,14 @@ console.log(reqData);
       }
       })
       .then(function (response) {
-        
+        console.log(response.data.message);
 if(response.data.message==="success"){
-  console.log(response.data.message);
-  ToastAndroid.show('Login success!', ToastAndroid.SHORT);
+  
+  ToastAndroid.show(response.data.message, ToastAndroid.SHORT);
   navigation.navigate("connect_chat", {res : response})
 }else{
 
-  ToastAndroid.show('login failed!', ToastAndroid.SHORT);
+  ToastAndroid.show(response.data.message, ToastAndroid.SHORT);
 }
 
       })

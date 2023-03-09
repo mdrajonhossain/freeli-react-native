@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ToastAndroid } from 'react-native';
+import axios from 'axios';
 
 const Signup = ({ navigation }) => {
   const [email, setEmail] = useState('');
@@ -7,7 +8,53 @@ const Signup = ({ navigation }) => {
 
   const handleSignup = () => {
     // Handle signup logic here
+    requestSigunupOtp();
   };
+
+  const emaiValidate = () => {
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if (reg.test(email) === false) {
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+  const requestSigunupOtp = () => {
+ 
+    if (!emaiValidate()) {
+      // do something
+      ToastAndroid.show('Please enter valid email '.concat(email), ToastAndroid.SHORT);
+      return;
+    }
+  
+  const reqData={
+    email: email,
+  }
+  
+  console.log(reqData);
+  
+      axios.post('https://cadevapicdn02.freeli.io/users/signup_email_otp', reqData,{
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        })
+        .then(function (response) {
+          console.log(response.data);
+          if(response.data.status===true){
+            ToastAndroid.show("OTP sent mail succes!", ToastAndroid.SHORT);
+            navigation.navigate('signup_varifiy_code')
+          }else{
+            ToastAndroid.show(response.data.status, ToastAndroid.SHORT);
+          }
+  
+        })
+        .catch(function (error) {
+          ToastAndroid.show(error, ToastAndroid.SHORT);
+        });
+  
+  
+    }
 
   return (
     <View style={styles.container}>
@@ -31,7 +78,7 @@ const Signup = ({ navigation }) => {
       </Text>
 
       <TouchableOpacity style={styles.button} onPress={handleSignup}>
-        <Text style={styles.buttonText} onPress={() => navigation.navigate('signup_varifiy_code')}>Continue</Text>
+        <Text style={styles.buttonText} >Continue</Text>
       </TouchableOpacity>
 
       <View style={{ marginTop: 15 }}>
