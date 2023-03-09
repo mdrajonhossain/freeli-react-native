@@ -234,7 +234,7 @@ if(response.data.message==="success"){
                 
                 }
                 else{
-                  ToastAndroid.show('Please enter correct value', ToastAndroid.SHORT);
+                  ToastAndroid.show('Please enter valid email and password!', ToastAndroid.SHORT);
                 }
                 }}>
               <Text style={styles.buttonText}>Sign In</Text>
