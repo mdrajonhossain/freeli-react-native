@@ -79,37 +79,40 @@ const Login = ({ navigation }) => {
 const reqData={
   email: email,
   password: pass,
-  gcm_id: 'frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP',
+  code:'',
   device_id: 'e366824a8a86ee83',
   device_type: 'android',
-  lat: '',
-  lang: '',
-  city: city,
   ipAddress: ipAddress,
   countryName: countryName,
-  continentCode: continentCode,
-  continentName: continentName,
-  countryCode: countryCode,
-  stateProv: stateProv,
-  time: 'Mar 6, 2023 at 5:56 PM'
+  city: city,
+  time: 'Mar 6, 2023 at 5:56 PM',
+  gcm_id: 'frRn9moKRdk:APA91bFgn_qg-Qm2Xc3HA7LHqCVU-TjTjIiUTu7YyltHwV_pZCrDvKjfWftZin7zirhNL2xaYP0VACOkjfBTWQiWuUzTQ0hFetN0v0AnB5Wyrhhvjjc2yvOnvatcpwxIqI-STDaYuBCP',
+  xmpp_token: 'xmpptoken',
+ // company_id: "f4e2ccb0-5a3a-11ec-9799-a4ea5366ede0"
 }
 
 console.log(reqData);
 
-    axios.post('https://cadevapicdn02.freeli.io/users/login_new', reqData,{
+    axios.post("https://caapicdn02.freeli.io/v2/users/login", reqData,{
       headers: {
         'Content-Type': 'application/json'
       }
       })
       .then(function (response) {
-        console.log(response.data.message);
+        console.log(response.data);
 if(response.data.message==="success"){
   
   ToastAndroid.show(response.data.message, ToastAndroid.SHORT);
   navigation.navigate("connect_chat", {res : response})
-}else{
+}else if(response.data.message==="Please check your email, to verify its you..."){
+
+// otp
+
 
   ToastAndroid.show(response.data.message, ToastAndroid.SHORT);
+}else{
+
+ // ToastAndroid.show(response.data.message, ToastAndroid.SHORT);
 }
 
       })
