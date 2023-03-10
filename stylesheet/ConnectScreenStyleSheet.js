@@ -34,7 +34,7 @@ const connectScreenStyleSheet = StyleSheet.create({
     thread_message: {
         height:50,
         width:'100%',
-        backgroundColor:appColor.app_theme_color_main_dark,
+        backgroundColor:appColor.app_thread_bg_color,
         flexDirection: 'row',
         justifyContent:'center',
         alignItems:"center"
