@@ -20,10 +20,11 @@ import Signup_about_company from './screen/Signup_about_company';
 import Signup_create_password from './screen/Signup_create_password';
 import Signup_invite_admin from './screen/Signup_invite_admin';
 import Signup_varifiycode_submission from './screen/Signup_varifiycode_submission';
-import ConnectScreen from './screen/ConnectScreen';
 
 
 const Stack = createNativeStackNavigator();
+
+
 
 function App() {
 
@@ -36,20 +37,24 @@ function App() {
         <Stack.Screen name="connect_screen" component={ConnectScreen} options={{ headerShown: false }} />
         <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="signup" component={Signup} options={{ headerShown: false }} />
-        
+
         <Stack.Screen name="connect_chat" component={Connect_chat} options={{ headerShown: false }} />
         <Stack.Screen name="connect_call" component={Connect_call} options={{ headerShown: false }} />
         <Stack.Screen name="connect_hub" component={Connect_hub} options={{ headerShown: false }} />
-        
-                
+
+
         <Stack.Screen name="signup_varifiy_code" component={Signup_varifiycode} options={{ headerShown: false }} />
         <Stack.Screen name="signupuser_form" component={Signup_userform} options={{ headerShown: false }} />
         <Stack.Screen name="signup_aboutcompany" component={Signup_about_company} options={{ headerShown: false }} />
         <Stack.Screen name="signup_createpassword" component={Signup_create_password} options={{ headerShown: false }} />
         <Stack.Screen name="Signup_inviteadmin" component={Signup_invite_admin} options={{ headerShown: false }} />
-        <Stack.Screen name="signup_varifi_submit" component={Signup_varifiycode_submission} options={{ headerShown: false }} />
-      
-      
+
+
+        {/* <Stack.Screen name="filehubs" component={File_hubs} options={{ headerShown: false }} /> */}
+
+        <Stack.Screen name="login_companylist" component={Login_companylist} options={{ headerShown: false }} />
+        <Stack.Screen name="login_otp" component={Login_verifycode} options={{ headerShown: false }} />
+
 
         <Stack.Screen name="chatScreen" component={ChattingScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
