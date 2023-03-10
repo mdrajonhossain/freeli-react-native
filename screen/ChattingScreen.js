@@ -3,7 +3,7 @@ import { View, Text, Image, TextInput, FlatList, Pressable, TouchableOpacity } f
 import StyleSheetJs from '../stylesheet/ChattingStyleSheet'
 import colorValues from '../AppColor';
 import MessageItemView from '../partials/MessageITem';
-import * as convData from '../messageData.json';
+import * as convData from '../demoData/messageData.json';
 import {Paragraph, Dialog, Portal, Provider } from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
