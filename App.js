@@ -20,6 +20,7 @@ import Signup_about_company from './screen/Signup_about_company';
 import Signup_create_password from './screen/Signup_create_password';
 import Signup_invite_admin from './screen/Signup_invite_admin';
 import Signup_varifiycode_submission from './screen/Signup_varifiycode_submission';
+import ConnectScreen from './screen/ConnectScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -30,8 +31,9 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="connect_screen">
         <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
+        <Stack.Screen name="connect_screen" component={ConnectScreen} options={{ headerShown: false }} />
         <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="signup" component={Signup} options={{ headerShown: false }} />
         
