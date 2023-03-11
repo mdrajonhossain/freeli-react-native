@@ -39,6 +39,42 @@ const connectScreenStyleSheet = StyleSheet.create({
         justifyContent:'center',
         alignItems:"center"
       },
+      conversationItem: {
+        width:'100%',
+        height:70,
+        flexDirection: "row",
+        flexWrap: "wrap",
+        paddingLeft: 5,
+        paddingRight: 5,
+        justifyContent:"flex-start",
+        alignItems:"center",
+        paddingTop: 10,
+        paddingBottom: 5,
+       
+      },
+      conversationNameTime:{
+        flex:1,
+        //backgroundColor:'red',
+        marginLeft:8,
+        flexDirection:"row-reverse"
+    },
+    conversationImg:{
+        height:40,
+        width:40,
+        borderRadius:50,
+        marginLeft:5,
+        borderWidth:1,
+        borderColor:appColor.appThemColor
+    },
+    circleBgCounter:{
+        height:25,
+        width:25,
+        borderRadius:50,
+        marginRight:5,
+        justifyContent:"center",
+        alignItems:"center",
+        backgroundColor:appColor.app_bg_color_purple
+    },
 });
 
 

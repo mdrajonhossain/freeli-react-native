@@ -48,7 +48,7 @@ const ConnectScreenHeader = () =>{
 
 }
 
-function ConnectScreenTab(){
+function ConnectScreenTab(navigation){
     return (
       <Tab.Navigator
         screenOptions={{
@@ -81,12 +81,14 @@ function ConnectScreenTab(){
         <Tab.Screen
             name="FirstPage"
             component={ConnectChat}
+            //initialParams={{navigation}}
             options={{
                 tabBarLabel: 'Chat',
             }}/>
         <Tab.Screen
             name="SecondPage"
             component={ConnectCall}
+            //initialParams={{navigation}}
             options={{
                 tabBarLabel: 'Call',
             }}/>
@@ -94,6 +96,7 @@ function ConnectScreenTab(){
         <Tab.Screen
             name="ThirdPage"
             component={ConnectHub}
+            //initialParams={{navigation}}
             options={{
                 tabBarLabel: 'Hub',
             }}/>
@@ -102,7 +105,7 @@ function ConnectScreenTab(){
   }
 
 
-const ConnectScreen = ({route, navigation }) =>{
+const ConnectScreen = ({navigation }) =>{
 
     return (
       <>

@@ -7,9 +7,10 @@ import ConversationItem from '../partials/ConversationItem'
 import Entypo from 'react-native-vector-icons/Entypo'
 
 
- const ConnectChat = ({navigation}) =>{
+ const ConnectChat = () =>{
 
     var jsonArray = convData.array;
+
 
 
     return(
@@ -27,8 +28,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
             <FlatList
             data={jsonArray}
             renderItem={ ({item, index}) => 
-                <ConversationItem item={item} index={index}
-                    navigation={navigation}/> }
+                <ConversationItem item={item} index={index}/> }
                 keyExtractor={i => i.id}
             contentContainerStyle={{ flexGrow: 1 }}
         />

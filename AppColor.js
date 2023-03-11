@@ -15,6 +15,7 @@ const appColor = {
     button_bag_color_on: '#08193B',
     app_theme_border_color: '#94b2ff',
     app_thread_bg_color:'#261F6D',
+    app_bg_color_purple:'#261F6D',
 
 
 
