@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 
-const Login_verifycode = ({ route, navigation }) => {
+const Login_OTP = ({ route, navigation }) => {
 
 
 
@@ -188,4 +188,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Login_verifycode;
+export default Login_OTP;

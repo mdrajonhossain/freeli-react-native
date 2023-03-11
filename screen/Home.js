@@ -61,7 +61,7 @@ const Home = ({ navigation }) => {
 
       <View style={styles.main_have_account}>
         <Text style={styles.have_account}>Don't thave an account ?
-          <Text style={styles.signup_signin} onPress={() => navigation.navigate("login_verify_code")}> Sign up</Text>
+          <Text style={styles.signup_signin} onPress={() => navigation.navigate("signup")}> Sign up</Text>
         </Text>
       </View>
 

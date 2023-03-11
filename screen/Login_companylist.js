@@ -56,6 +56,7 @@ const Login_companylist = ({ route, navigation }) => {
     })
       .then(function (response) {
         console.log(124, response.data.message);
+        navigation.navigate("connect_chat", {res:response});
       })
       .catch(function (error) {
         console.log(999, error)

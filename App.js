@@ -23,7 +23,8 @@ import Signup_varifiycode_submission from './screen/Signup_varifiycode_submissio
 // import File_hubs from './screen/File_hubs';
 
 import Login_companylist from './screen/Login_companylist';
-import Login_verifycode from './screen/Login_verifycode';
+import Login_OTP from './screen/Login_OTP';
+
 
 
 
@@ -35,10 +36,14 @@ function App() {
 
 
 
+
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
+
+
         <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="signup" component={Signup} options={{ headerShown: false }} />
 
@@ -53,11 +58,10 @@ function App() {
         <Stack.Screen name="signup_createpassword" component={Signup_create_password} options={{ headerShown: false }} />
         <Stack.Screen name="Signup_inviteadmin" component={Signup_invite_admin} options={{ headerShown: false }} />
 
-
         {/* <Stack.Screen name="filehubs" component={File_hubs} options={{ headerShown: false }} /> */}
 
         <Stack.Screen name="login_companylist" component={Login_companylist} options={{ headerShown: false }} />
-        <Stack.Screen name="login_otp" component={Login_verifycode} options={{ headerShown: false }} />
+        <Stack.Screen name="login_otp" component={Login_OTP} options={{ headerShown: false }} />
 
 
         <Stack.Screen name="chatScreen" component={ChattingScreen} options={{ headerShown: false }} />
