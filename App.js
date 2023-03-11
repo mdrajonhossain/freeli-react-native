@@ -21,14 +21,10 @@ import Signup_create_password from './screen/Signup_create_password';
 import Signup_invite_admin from './screen/Signup_invite_admin';
 import Signup_varifiycode_submission from './screen/Signup_varifiycode_submission';
 import Login_companylist from './screen/Login_companylist';
-<<<<<<< HEAD
 import Login_OTP from './screen/Login_OTP';
 
 
-=======
-import Login_verifycode from './screen/Login_verifycode';
 import ConnectScreen from './screen/ConnectScreen';
->>>>>>> 5f928ee5e6eb5e7a4fcdb9c8ce7b18d9418be165
 
 
 const Stack = createNativeStackNavigator();
@@ -43,14 +39,11 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="home">
+      <Stack.Navigator initialRouteName="connect_screen">
         <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
-<<<<<<< HEAD
 
 
-=======
         <Stack.Screen name="connect_screen" component={ConnectScreen} options={{ headerShown: false }} />
->>>>>>> 5f928ee5e6eb5e7a4fcdb9c8ce7b18d9418be165
         <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="signup" component={Signup} options={{ headerShown: false }} />
 
