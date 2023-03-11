@@ -22,8 +22,7 @@ const CallListItem = ({ item, index}) => {
             <Pressable>
                 <Image style={StyleSheetJs.conversationImg}
                     source={{uri: item.conv_img}} >
-                        {/* {item.conv_img} */}
-                    </Image>
+                </Image>
             </Pressable>
             <Pressable style={StyleSheetJs.conversationNameTime}>
 
@@ -32,15 +31,16 @@ const CallListItem = ({ item, index}) => {
                     <View style={{flexDirection:'row-reverse'}}>
                         <Ionicons name="call" size={20} color={colorValues.appThemColor}/>
                     </View>
-                    <Text style={{ fontSize: 12, color: colorValues.gray,marginBottom:5 }}>{item.conv_date}</Text>
+                    <Text style={{ fontSize: 12, color: colorValues.gray, marginBottom:5 }}>{item.conv_date}</Text>
 
                 </View>
 
                 <View style={{ flexDirection: 'column', flex:1,marginLeft:15, marginTop:5 }}>
                     <Text 
-                        style={{ flex: 1, fontSize: 18, fontWeight: 'bold', color: colorValues.appThemColor,marginBottom:5 }}>
+                        style={{ flex: 1, fontSize: 18, fontWeight: 'bold', color: colorValues.appThemColor, }}>
                         {item.conv_name} 
                     </Text>
+                    <Text style={{ display:'none', fontSize: 12, color: colorValues.gray, marginBottom:5 }}>{item.conv_date}</Text>
 
                 </View>
 

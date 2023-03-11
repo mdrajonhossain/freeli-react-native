@@ -39,9 +39,17 @@ const logInStyleSheet =StyleSheet.create({
       justifyContent: 'center',
       backgroundColor: appColor.app_theme_color_main_dark,
     },
+    demoButton: {
+      width: '100%',
+      height: 50,
+      borderRadius: 5,
+      marginTop: 20,
+      justifyContent: 'center',
+      backgroundColor: appColor.app_theme_color_main_dark,
+    },
     buttonText: {
       color: appColor.text_color_main_white,
-      fontSize: 20,
+      fontSize: 18,
       textAlign: 'center',
     },
     textBlueLight: {

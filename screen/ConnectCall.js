@@ -17,22 +17,13 @@ const ConnectCall = () =>{
 
    return(
        <View style={{flex:1,backgroundColor:appColor.white,flexDirection:'column-reverse'}}>
-           {/* <View style={stylesheet.thread_message}>
-               <View style={{margin:5}}>
-                   <Entypo name="chat" size={22} color={appColor.white}/>
-               </View>
-               
-               <Text style={{ color: 'white', fontSize: 16 }}>46</Text>
-               <Text style={{ color: 'white', fontSize: 16 }}> Threaded message(s)</Text>
-       </View> */}
 
        <View style = {{flex:1}}>
            <FlatList
-           data={jsonArray}
-           renderItem={ ({item, index}) => 
-               <CallListItem item={item} index={index}/> }
-               keyExtractor={i => i.id}
-           contentContainerStyle={{ flexGrow: 1 }}
+            data={jsonArray}
+            renderItem={ ({item, index}) => <CallListItem item={item} index={index}/> }
+            keyExtractor={i => i.id}
+            contentContainerStyle={{ flexGrow: 1 }}
        />
        
        

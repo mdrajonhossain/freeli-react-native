@@ -39,7 +39,7 @@ function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="home">
+      <Stack.Navigator initialRouteName="connect_screen">
         <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
 
 
